@@ -1,0 +1,28 @@
+import = [
+  # uncomment the flavour you want below:
+  #"~/.config/alacritty/catppuccin-latte.toml"
+  # "~/.config/alacritty/catppuccin-frappe.toml"
+  # "~/.config/alacritty/catppuccin-macchiato.toml"
+   "~/.config/alacritty/catppuccin-mocha.toml"
+]
+[window]
+title="alacritty"
+dynamic_title=false
+#opacity=0.8
+startup_mode="Maximized"
+[window.dimensions]
+columns=77
+lines=23
+[window.position]
+x=280
+y=100
+[window.padding]
+x=3
+y=3
+
+[font]
+size=12
+[font.normal]
+family="CaskaydiaCove Nerd Font"
+style="Regular"
+
