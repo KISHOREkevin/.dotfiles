@@ -16,6 +16,10 @@ ZSH_THEME="robbyrussell"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+### zsh syntax highlight theme ###
+
+source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -104,14 +108,23 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #### my aliases ####
-alias ls='eza --icons'
+alias ls='eza --icons -alh'
 alias weather='curl wttr.in/madurai'
 alias open='xdg-open'
 alias publicip='curl -4 ifconfig.me'
 alias cat='bat'
+
+## startup script##
 nerdfetch
 ## starship ###
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+### fzf ###
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
+
+export BAT_THEME="Catppuccin Mocha"
