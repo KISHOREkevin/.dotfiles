@@ -8,11 +8,11 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Mocha (Gogh)'
-config.enable_scroll_bar = true
+--config.enable_scroll_bar = true
 config.font = wezterm.font 'ComicShannsMono Nerd Font'
 config.font_size = 15
 config.enable_tab_bar = false
-
+config.audible_bell= 'Disabled'
 -- disable the warning of missiing glyphs ---
 config.warn_about_missing_glyphs = false
 -- startup fullscreen ---
