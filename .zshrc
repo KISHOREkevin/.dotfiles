@@ -19,7 +19,7 @@ ZSH_THEME="robbyrussell"
 ### zsh syntax highlight theme ###
 
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
+#source ~/.zsh/dracula-zsh-syntax-highlighting.zsh 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -74,7 +74,7 @@ source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git   colored-man-pages  web-search zsh-interactive-cd  zsh-autosuggestions  zsh-syntax-highlighting )
+plugins=(colored-man-pages   web-search zsh-interactive-cd  zsh-autosuggestions  zsh-syntax-highlighting )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,7 +113,7 @@ alias weather='curl wttr.in/madurai'
 alias open='xdg-open'
 alias publicip='curl -4 ifconfig.me'
 alias cat='bat'
-
+alias vim='nvim'
 ## startup script##
 nerdfetch
 ## starship ###
@@ -128,3 +128,4 @@ export FZF_DEFAULT_OPTS=" \
 
 
 export BAT_THEME="Catppuccin Mocha"
+export EDITOR="nvim"
