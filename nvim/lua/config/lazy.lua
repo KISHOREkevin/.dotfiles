@@ -65,10 +65,8 @@ wk.add({
 })
 
 
-vim.cmd("set number")
-vim.cmd("set relativenumber")
 -- Neo tree keybind ---
 vim.keymap.set("n","<leader>e",":Neotree filesystem reveal left<CR>")
 -- my config --
 vim.cmd("set number")
-vim.cmd("set relativenumber")
+

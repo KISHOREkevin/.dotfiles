@@ -4,24 +4,28 @@ import = [
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
    "~/.config/alacritty/catppuccin-mocha.toml"
+  #"~/.config/alacritty/dracula.toml"
 ]
 [window]
 title="alacritty"
 dynamic_title=false
 #opacity=0.8
-startup_mode="Maximized"
+#startup_mode="Maximized"
 [window.dimensions]
-columns=77
+columns=113
 lines=23
-[window.position]
-x=280
-y=100
+#[window.position]
+#x=210
+#y=85
 [window.padding]
 x=3
 y=3
+[cursor.style]
+shape="beam"
+blinking="Never"
 
 [font]
-size=12
+size=13
 [font.normal]
 family="CaskaydiaCove Nerd Font"
 style="Regular"

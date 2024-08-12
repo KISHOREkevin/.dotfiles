@@ -1,0 +1,26 @@
+[memory]
+command=echo "| 󰍛 $(free -h | grep -vE "total|used|free|shared|buff/cache|available"| grep "^Mem:" | awk '{print $7" / "$2}')"
+interval=10
+
+[storage]
+command=echo "|  /home $(df -h | grep -vE '^Filesystem|tmpfs|run|dev$'| grep "^/dev/sda3" | awk '{print $4" / "$2}')"
+interval=50
+[battery]
+command=echo "| 󰁹 $(acpi | grep "^Battery 0" | awk '{print $4}')"
+interval=10
+
+[volume-up]
+full_text="|  "
+command=pamixer --set-limit 100 && pamixer -d 1
+
+[audio]
+command=echo " $(pamixer --set-limit 100 && pamixer --get-volume) %"
+interval=1
+
+[volume-down]
+full_text=" "
+command=pamixer --set-limit 100 && pamixer -i 1
+
+[time]
+command=echo "| 󱑆 $(date '+%Y-%m-%d %H:%M') |"
+interval=5

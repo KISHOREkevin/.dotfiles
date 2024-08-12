@@ -115,7 +115,8 @@ alias publicip='curl -4 ifconfig.me'
 alias cat='bat'
 alias vim='nvim'
 ## startup script##
-nerdfetch
+colorscript -r
+#nerdfetch
 ## starship ###
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
