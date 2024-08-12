@@ -5,8 +5,9 @@ interval=10
 [storage]
 command=echo "|  /home $(df -h | grep -vE '^Filesystem|tmpfs|run|dev$'| grep "^/dev/sda3" | awk '{print $4" / "$2}')"
 interval=50
+
 [battery]
-command=echo "| 󰁹 $(acpi | grep "^Battery 0" | awk '{print $4}')"
+command=echo "| 󰁹$(acpi | grep "^Battery 0" | awk -F ',' '{print $2}')"
 interval=10
 
 [volume-up]
