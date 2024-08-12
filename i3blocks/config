@@ -24,3 +24,13 @@ command=pamixer --set-limit 100 && pamixer -i 1
 [time]
 command=echo "| 󱑆 $(date '+%Y-%m-%d %H:%M') |"
 interval=5
+
+[poweroff]
+full_text="⏻ "
+command=kitty ./scripts/poweroff.sh
+
+[reboot]
+full_text=" "
+command=kitty ./scripts/reboot.sh
+
+
