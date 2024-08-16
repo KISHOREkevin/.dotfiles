@@ -1,37 +1,57 @@
 [memory]
-command=echo "| 󰍛 $(free -h | grep -vE "total|used|free|shared|buff/cache|available"| grep "^Mem:" | awk '{print $7" / "$2}')"
+command=echo " 󰍛 $(free -h | grep -vE "total|used|free|shared|buff/cache|available"| grep "^Mem:" | awk '{print $7" / "$2}') "
 interval=10
+color=#f9e2af
+background=#313244
 
 [storage]
-command=echo "|  /home $(df -h | grep -vE '^Filesystem|tmpfs|run|dev$'| grep "^/dev/sda3" | awk '{print $4" / "$2}')"
+command=echo "  /home $(df -h | grep -vE '^Filesystem|tmpfs|run|dev$'| grep "^/dev/sda3" | awk '{print $4" / "$2}') "
 interval=50
+color=#f9e2af
+background=#313244
+
 
 [battery]
-command=echo "| 󰁹$(acpi | grep "^Battery 0" | awk -F ',' '{print $2}')"
+command=echo " 󰁹$(acpi | grep "^Battery 0" | awk -F ',' '{print $2}') "
 interval=10
+color=#f9e2af
+background=#313244
 
 [volume-up]
-full_text="|  "
-command=pamixer --set-limit 100 && pamixer -d 1
+full_text="   "
+command=./scripts/volumecontrol.sh down
+color=#f9e2af
+background=#313244
 
-[audio]
-command=echo " $(pamixer --set-limit 100 && pamixer --get-volume) %"
+[volume]
+command=echo "  $(./scripts/volumecontrol.sh current) % "
 interval=1
+color=#f9e2af
+background=#313244
 
 [volume-down]
-full_text=" "
-command=pamixer --set-limit 100 && pamixer -i 1
+full_text="   "
+command=./scripts/volumecontrol.sh up
+color=#f9e2af
+background=#313244
+
 
 [time]
-command=echo "| 󱑆 $(date '+%Y-%m-%d %H:%M') |"
+command=echo "  $(date '+%d-%m-%Y %a | 󱑆 %H:%M') "
 interval=5
+color=#f9e2af
+background=#313244
 
 [poweroff]
-full_text="⏻ "
+full_text=" ⏻ "
 command=kitty ./scripts/poweroff.sh
+color=#f9e2af
+background=#313244
 
 [reboot]
-full_text=" "
+full_text="  "
 command=kitty ./scripts/reboot.sh
+color=#f9e2af
+background=#313244
 
 
