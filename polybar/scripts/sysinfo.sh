@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 fastfetch
 choice=0
 while [ $choice=0 ];do
