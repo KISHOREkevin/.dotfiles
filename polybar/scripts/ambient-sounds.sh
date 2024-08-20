@@ -18,7 +18,7 @@ randommusic(){
 listallmusic(){
   mpc clear 
   local songs=$(mpc ls)
-  local song=$(printf '%s\n' "${songs[@]}" | rofi -dmenu)
+  local song=$(printf '%s\n' "${songs[@]}" | rofi -dmenu -p "Choose a music to play : ")
   mpc add $song
   mpc repeat true
   mpc random false
@@ -48,7 +48,7 @@ declare -a options=(
 
 )
 
-choice=$( printf '%s\n' "${options[@]}" | rofi -dmenu) 
+choice=$( printf '%s\n' "${options[@]}" | rofi -dmenu -p "Choose an option :") 
 
 case $choice in
   "Next song") nextsong ;;
