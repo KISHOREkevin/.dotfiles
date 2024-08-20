@@ -8,8 +8,8 @@
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-default_border pixel 3
-default_floating_border pixel 3
+default_border none
+default_floating_border none
 # catpuccin colors
 set $rosewater #f5e0dc
 set $flamingo #f2cdcd
@@ -66,7 +66,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id polybar
+exec --no-startup-id polybar -r 
+exec --no-startup-id dunst
 # battery indicator
 
 # restore background
@@ -76,16 +77,18 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # get current volume
 set $currentVolume $(pactl get-sink-volume @DEFAULT_SINK@| awk -F '%' '{print $1}' | awk '{print $5}')
 
-set $currentBrightness $(brightnessctl -m | awk -F ',' '{print $4}')
+set $currentBrightness $($HOME/.config/i3/scripts/brightness-notification.sh | awk -F "%" '{print $1}')
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send -r 555 -t 2000 " Volume : $currentVolume %"
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send -r 555 -t 2000 " Volume : $currentVolume %"
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && notify-send -r 555 -t 2000 -h int:value:$currentVolume " Volume : $currentVolume %"
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && notify-send -r 555 -t 2000  -h int:value:$currentVolume " Volume : $currentVolume %"
 
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -c backlight set +5% 
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -c backlight set 5%- 
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -c backlight set +5%  && notify-send -r 555 -t 2000 -h int:value:$currentBrightness "󰃠 Brightness :$currentBrightness"
+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -c backlight set 5%- && notify-send -r 555 -t 2000 -h int:value:$currentBrightness "󰃠 Brightness :$currentBrightness"
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -98,7 +101,7 @@ bindsym $mod+Return exec --no-startup-id kitty
 
 bindsym $mod+space exec --no-startup-id rofi -show drun 
 # polkit
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # picom
 exec --no-startup-id picom -b
@@ -106,7 +109,7 @@ exec --no-startup-id picom -b
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -200,6 +203,11 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -238,7 +246,7 @@ bindsym $mod+r mode "resize"
 #############################
 
 # Set inner/outer gaps
-#for_window [class="^.*"] border pixel 0
+#for_window [class="^.*"] border pixel 3
 gaps inner 12
 gaps outer 1
 
