@@ -109,7 +109,7 @@ exec --no-startup-id picom -b
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "CaskaydiaCove Nerd Font" -nb "#1e1e2e" -sb "#89b4fa" -sf "#313244" -l 10
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
