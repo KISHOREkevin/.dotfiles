@@ -1,0 +1,27 @@
+super + space
+      rofi -show drun
+
+super + d
+       dmenu_run -fn "CaskaydiaCove Nerd Font" -nb "#1e1e2e" -sb "#89b4fa" -sf "#313244" -l 10 -b
+
+XF86AudioRaiseVolume
+      ~/.config/sxhkd/scripts/volumecontrol.sh up
+
+XF86AudioLowerVolume
+      ~/.config/sxhkd/scripts/volumecontrol.sh down
+
+XF86AudioMute
+      ~/.config/sxhkd/scripts/volumecontrol.sh mute
+
+XF86AudioMicMute
+      pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+
+XF86MonBrightnessUp
+      ~/.config/sxhkd/scripts/brightnesscontrol.sh up
+
+XF86MonBrightnessDown
+      ~/.config/sxhkd/scripts/brightnesscontrol.sh down
+
+super + m
+      ~/.config/polybar/scripts/ambient-sounds.sh
+
