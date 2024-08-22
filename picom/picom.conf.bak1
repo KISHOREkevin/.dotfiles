@@ -1,0 +1,22 @@
+frame-opacity = 0.7;
+inactive-dim-fixed = true
+
+backend = "glx"
+dithered-present = false;
+vsync = true;
+
+# Try to detect windows with rounded corners and don't consider them
+# shaped windows. The accuracy is not very high, unfortunately.
+#
+# Has nothing to do with `corner-radius`.
+#
+# Default: false
+detect-rounded-corners = true;
+
+
+detect-client-opacity = true;
+
+detect-transient = true;
+
+use-damage = true;
+
