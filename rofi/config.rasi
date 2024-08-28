@@ -3,8 +3,8 @@ configuration{
     terminal: "kitty";
     disable-history: true; 
     display-drun: " 󰣇 ";
-    display-run: "   Run ";
-    display-window: " 󰕰  Window";
+    display-run: " 󰣇 ";
+    display-window:  " 󰣇 ";
 
 }
 
