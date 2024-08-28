@@ -5,8 +5,8 @@ configuration{
     display-drun: " 󰣇 ";
     display-run: " 󰣇 ";
     display-window:  " 󰣇 ";
-
+    location:0;
 }
 
-@theme "catppuccin-mocha"
+@theme "tokyonight"
 
