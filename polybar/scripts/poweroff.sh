@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
-choice=0
-echo -e "Are you want to : \n p - poweroff\n r - reboot\n l - logout\n s - sleep\n n - Cancel"
-while [ $choice = 0 ];
-do
-    read -p "Enter the choice : " RESPONSE
 
-    case $RESPONSE in
-	p) shutdown now;choice=1;;
-	r) shutdown -r now;choice=1;;
-	l) i3 exit;choice=1;;
-	s) systemctl suspend;choice=1;;
-	n) exit 0;choice=1;;
-	*) echo "Enter a valid input !!!";choice=0;;
-    esac
-done
+poweroffopt='⏻ Poweroff'
+rebootopt=' Reboot'
+logoutopt='󰗽 Logout'
+sleepopt='󰒲 Sleep'
+cancelopt=' Cancel'
+declare options="$poweroffopt\n$rebootopt\n$logoutopt\n$sleepopt\n$cancelopt"
+
+choice=$(echo -e $options | rofi -dmenu -p "Choose to logout :") 
+case $choice in
+    $poweroffopt) shutdown now;;
+    $rebootopt) shutdown -r now;;
+    $logoutopt) i3 exit;;
+    $sleepopt) systemctl suspend;;
+    $cancelopt) exit 0 ;;
+    *) exit 0 ;;
+esac
+
