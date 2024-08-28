@@ -25,3 +25,5 @@ XF86MonBrightnessDown
 super + m
       ~/.config/polybar/scripts/ambient-sounds.sh
 
+super + p
+      ~/.config/polybar/scripts/poweroff.sh

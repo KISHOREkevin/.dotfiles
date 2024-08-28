@@ -12,7 +12,7 @@ case $choice in
     $poweroffopt) shutdown now;;
     $rebootopt) shutdown -r now;;
     $logoutopt) i3 exit;;
-    $sleepopt) systemctl suspend;;
+    $sleepopt) systemctl suspend; i3lock -i $HOME/.config/xautolock//lockscreen.png;;
     $cancelopt) exit 0 ;;
     *) exit 0 ;;
 esac
