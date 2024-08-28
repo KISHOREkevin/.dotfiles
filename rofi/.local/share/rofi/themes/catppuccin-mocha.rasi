@@ -7,7 +7,6 @@
     fg-col: #cdd6f4;
     fg-col2: #313244;
     grey: #6c7086;
-    height:500;
     width: 500;
     font: "CaskaydiaCove Nerd Font 13";
 }
@@ -56,7 +55,7 @@ listview {
   
     padding: 6px;
     margin: 10px;
-   
+    lines:12; 
     background-color: @bg-col;
 }
 
