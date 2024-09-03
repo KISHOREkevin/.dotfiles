@@ -1,0 +1,26 @@
+[manager]
+ratio = [1,4,3]
+[preview]
+image_quality = 60
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', block = true, for = "unix" }
+]
+
+pdf = [
+{ run = 'zathura "$@"',block = true , for = "unix" }
+]
+
+image = [
+{run = 'sxiv "$@"' , block=true,for="unix"}
+]
+
+[open]
+rules = [
+{name = "*.pdf",use="pdf"},
+{mime = "text/*", use="edit"},
+{mime = "image/*",use="image"},
+{ mime = "application/{json,x-ndjson}", use = "edit" },
+{name = "*" , use = "edit"}
+]
