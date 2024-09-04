@@ -27,6 +27,3 @@ super + m
 
 super + p
       ~/.config/polybar/scripts/poweroff.sh
-
-super + n
-      kitty nmtui

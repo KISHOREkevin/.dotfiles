@@ -50,7 +50,7 @@ font pango:CaskaydiaCove Nerd Font 3
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-#exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nitrogen --restore
