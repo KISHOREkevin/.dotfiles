@@ -2,7 +2,7 @@ super + space
       rofi -show drun
 
 super + d
-       dmenu_run -fn "CaskaydiaCove Nerd Font" -nb "#1e1e2e" -sb "#89b4fa" -sf "#313244" -l 10 -b
+       dmenu_run -fn "CaskaydiaCove Nerd Font" -nb "#1e1e2e" -sb "#89b4fa" -sf "#313244" -l 10 
 
 XF86AudioRaiseVolume
       ~/.config/sxhkd/scripts/volumecontrol.sh up
@@ -27,3 +27,6 @@ super + m
 
 super + p
       ~/.config/polybar/scripts/poweroff.sh
+
+super + n
+      kitty nmtui
