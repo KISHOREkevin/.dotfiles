@@ -18,7 +18,7 @@ ZSH_THEME="robbyrussell"
 
 ### zsh syntax highlight theme ###
 
-source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+#source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 #source ~/.zsh/dracula-zsh-syntax-highlighting.zsh 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -115,8 +115,9 @@ alias publicip='curl -4 ifconfig.me'
 alias cat='bat'
 alias vim='nvim'
 ## startup script##
-colorscript -r
+#colorscript -r
 #nerdfetch
+mystartupscript
 ## starship ###
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -129,4 +130,4 @@ export FZF_DEFAULT_OPTS=" \
 
 
 export BAT_THEME="Catppuccin Mocha"
-export EDITOR="nvim"
+export EDITOR="vim"

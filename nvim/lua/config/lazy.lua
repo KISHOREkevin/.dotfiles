@@ -34,6 +34,12 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+-- lsp config
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.nvim_workspace()
+lsp.setup()
+
 -- keymaps for telescope--
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -61,7 +67,22 @@ wk.add({
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
     { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
-  }
+  },
+   ["m"] = { "<cmd>Mason<cr>", "Mason UI for Lsp" },
+ ["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
+
+   ["l"]={
+        name = "LSP",
+        ["a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        ["i"] = { "<cmd>LspInfo<cr>", "Info" },
+        ["l"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        ["r"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        ["s"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        ["S"] = {
+            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+            "Workspace Symbols",
+        },
+    },
 })
 
 
@@ -69,4 +90,5 @@ wk.add({
 vim.keymap.set("n","<leader>e",":Neotree filesystem reveal left<CR>")
 -- my config --
 vim.cmd("set number")
+vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 

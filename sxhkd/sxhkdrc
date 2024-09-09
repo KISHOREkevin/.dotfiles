@@ -27,3 +27,6 @@ super + m
 
 super + p
       ~/.config/polybar/scripts/poweroff.sh
+
+super + c
+      rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'

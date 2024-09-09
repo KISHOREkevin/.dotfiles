@@ -1,0 +1,91 @@
+* {
+    bg-col:  #1e1e2e;
+    bg-col-light: #1e1e2e;
+    border-col: #1e1e2e;
+    selected-col: #89b4fa;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #313244;
+    grey: #6c7086;
+    width: 500;
+    font: "CaskaydiaCove Nerd Font 13";
+}
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+window {
+    
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+  
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @blue;
+    padding: 2px;
+    margin:2px;
+
+}
+
+prompt {
+    background-color: @blue;
+    margin:2px;
+    padding: 2px;
+    text-color: @bg-col;
+    border-radius:5px;  
+}
+
+
+entry {
+    padding:5px; 
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+  
+    padding: 6px;
+    margin: 10px;
+    lines:12; 
+    background-color: @bg-col;
+}
+
+element {
+    padding: 5px;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+}
+
+
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+  
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+     
+    text-color: @blue;
+    background-color: @bg-col-light;
+}
