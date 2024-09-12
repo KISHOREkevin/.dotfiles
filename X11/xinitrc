@@ -1,7 +1,7 @@
 dunst &
 picom -b &
 sxhkd &
-nitrogen --restore &
+feh --bg-fill --no-fehbg ~/wallpapers/tress.png &
 greenclip daemon &
 xautolock -time 10  -locker "i3lock -i $HOME/.config/xautolock/lockscreen.png" &
 dbus-update-activation-environment DISPLAY &
