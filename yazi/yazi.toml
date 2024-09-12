@@ -13,7 +13,11 @@ pdf = [
 ]
 
 image = [
-{run = 'sxiv "$@"' , block=true,for="unix"}
+{run = 'feh "$@"' , block=true,for="unix"}
+]
+
+video = [
+{run = 'mpv "$@"',block=true,for="unix"}
 ]
 
 [open]
@@ -21,6 +25,7 @@ rules = [
 {name = "*.pdf",use="pdf"},
 {mime = "text/*", use="edit"},
 {mime = "image/*",use="image"},
+{mime = "video/*",use = "video"},
 { mime = "application/{json,x-ndjson}", use = "edit" },
 {name = "*" , use = "edit"}
 ]
