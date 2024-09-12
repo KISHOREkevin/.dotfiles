@@ -1,3 +1,8 @@
 dunst &
 picom -b &
-exec i3
+sxhkd &
+nitrogen --restore &
+greenclip daemon &
+xautolock -time 10  -locker "i3lock -i $HOME/.config/xautolock/lockscreen.png" &
+dbus-update-activation-environment DISPLAY &
+exec i3 
