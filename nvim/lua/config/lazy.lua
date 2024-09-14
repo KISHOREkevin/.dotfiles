@@ -42,8 +42,9 @@ lsp.setup()
 
 -- keymaps for telescope--
 local builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fg', builtin.current_buffer_fuzzy_find,{})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
@@ -52,7 +53,8 @@ local wk = require("which-key")
 wk.add({
   { "<leader>f", group = "file" }, -- group
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-  { "<leader>fb", function() print("hello") end, desc = "Foobar" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>",desc= "find buffers",mode = "n" },
+  { "<leader>fg", "<cmd>Telescope current_buffer_fuzzy_find<cr>",desc="search word",mode="n"},
   { "<leader>fn", desc = "New File" },
   { "<leader>f1", hidden = true }, -- hide this keymap
   { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
@@ -67,28 +69,12 @@ wk.add({
     mode = { "n", "v" }, -- NORMAL and VISUAL mode
     { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
-  },
-   ["m"] = { "<cmd>Mason<cr>", "Mason UI for Lsp" },
- ["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
-
-   ["l"]={
-        name = "LSP",
-        ["a"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        ["i"] = { "<cmd>LspInfo<cr>", "Info" },
-        ["l"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        ["r"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        ["s"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        ["S"] = {
-            "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-            "Workspace Symbols",
-        },
-    },
+  }
 })
 
 
 -- Neo tree keybind ---
-vim.keymap.set("n","<leader>e",":Neotree filesystem reveal left<CR>")
+vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
 -- my config --
 vim.cmd("set number")
-vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 
