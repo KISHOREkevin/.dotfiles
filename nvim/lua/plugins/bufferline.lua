@@ -5,8 +5,7 @@ return{
 	config = function() -- start
 		vim.opt.termguicolors = true
 		require("bufferline").setup{ -- setup start
-					} --setup end
-				
-	end -- end
+		} 
+	end 
 
 }
