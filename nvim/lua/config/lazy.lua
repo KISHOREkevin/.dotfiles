@@ -76,8 +76,6 @@ wk.add({
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
   }
 })
-
-
 -- Neo tree keybind ---
 vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
 -- my config --
