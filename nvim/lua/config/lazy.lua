@@ -34,19 +34,32 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+-- lsp config
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+lsp.nvim_workspace()
+lsp.setup()
+
 -- keymaps for telescope--
 local builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find,{})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- keymaps for buffers
+vim.keymap.set('n','<leader>bn',":bn<CR>")
+vim.keymap.set('n','<leader>bd',':bdelete!<CR>:bn<CR>')
 -- config for whichkey --
 local wk = require("which-key")
 wk.add({
   { "<leader>f", group = "file" }, -- group
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-  { "<leader>fb", function() print("hello") end, desc = "Foobar" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>",desc= "find buffers",mode = "n" },
+  { "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>",desc="search word",mode="n"},
+  {"<leader>bn",desc="buffer next"},
+  {"<leader>bd",desc="buffer delete"},
   { "<leader>fn", desc = "New File" },
   { "<leader>f1", hidden = true }, -- hide this keymap
   { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
@@ -63,10 +76,8 @@ wk.add({
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
   }
 })
-
-
 -- Neo tree keybind ---
-vim.keymap.set("n","<leader>e",":Neotree filesystem reveal left<CR>")
+vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
 -- my config --
 vim.cmd("set number")
 

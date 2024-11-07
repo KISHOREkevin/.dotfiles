@@ -1,6 +1,5 @@
 require("config.lazy")
 
---local lspconfig = require("lspconfig")
+vim.o.cursorline=true
+vim.o.number=true
 
---lspconfig.lua_ls.setup{}
---lspconfig.tsserver.setup{}
