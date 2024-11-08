@@ -7,13 +7,15 @@ sleepopt='󰒲 Sleep'
 cancelopt=' Cancel'
 declare options="$poweroffopt\n$rebootopt\n$logoutopt\n$sleepopt\n$cancelopt"
 
-choice=$(echo -e $options | rofi -dmenu -p "Choose to logout :") 
+choice=$(echo -e $options | rofi -dmenu -theme-str 'inputbar { enabled: false; }')
 case $choice in
-    $poweroffopt) shutdown now;;
-    $rebootopt) shutdown -r now;;
-    $logoutopt) i3 exit;;
-    $sleepopt) systemctl suspend; i3lock -i $HOME/.config/xautolock//lockscreen.png;;
-    $cancelopt) exit 0 ;;
-    *) exit 0 ;;
+$poweroffopt) shutdown now ;;
+$rebootopt) shutdown -r now ;;
+$logoutopt) i3 exit ;;
+$sleepopt)
+  systemctl suspend
+  i3lock -i $HOME/.config/xautolock/lockscreen.png
+  ;;
+$cancelopt) exit 0 ;;
+*) exit 0 ;;
 esac
-
