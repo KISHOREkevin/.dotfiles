@@ -1,0 +1,22 @@
+[global]
+frame_color = "#7aa2f7"
+width = 300
+height = 600
+progress_bar_corner_radius = 5
+separator_color= frame
+font = CaskaydiaCove Nerd Font 10
+alignment = center
+browser = /usr/bin/xdg-open
+corner_radius = 10
+[urgency_low]
+background = "#1a1b26"
+foreground = "#7aa2f7"
+[urgency_normal]
+background = "#1a1b26"
+foreground = "#7aa2f7"
+
+[urgency_critical]
+background = "#1a1b26"
+foreground = "#7aa2f7"
+frame_color = "#fab387"
+
