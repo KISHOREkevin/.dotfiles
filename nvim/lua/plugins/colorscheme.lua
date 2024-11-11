@@ -1,16 +1,7 @@
-return{
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
+return {
+  -- add dracula
+  "Mofiqul/dracula.nvim" ,
   config = function ()
-	  -- Lua
-	require('lualine').setup {
-  	options = {
-    -- ... your lualine config
-    		theme = 'tokyonight-night'
-    -- ... your lualine config
-  		}
-  	}
-	vim.cmd.colorscheme("tokyonight-night");
+  	vim.cmd.colorscheme("dracula");
   end
- }
+}
