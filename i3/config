@@ -4,7 +4,7 @@ include ~/.config/i3/theme/catppuccin-mocha.conf
 set $mod Mod4
 
 font pango:CaskaydiaCove Nerd Font 3
-exec --no-startup-id polybar -r  
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

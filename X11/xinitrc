@@ -1,8 +1,10 @@
 dunst &
 picom -b &
 sxhkd &
-feh --bg-fill --no-fehbg ~/wallpapers/tress.png &
+feh --bg-fill --no-fehbg ~/wallpapers/carvillage.png &
+polybar -r &
 greenclip daemon &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xautolock -time 10  -locker "i3lock -i $HOME/.config/xautolock/lockscreen.png" &
 dbus-update-activation-environment DISPLAY &
 exec i3 
