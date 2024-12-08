@@ -80,4 +80,7 @@ wk.add({
 vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
 -- my config --
 vim.cmd("set number")
-
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
