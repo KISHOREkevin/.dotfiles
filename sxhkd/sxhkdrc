@@ -27,3 +27,18 @@ super + m
 
 super + p
       ~/.config/polybar/scripts/poweroff.sh
+<<<<<<< HEAD
+=======
+
+super + c
+      rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+super + i
+      $TERMINAL ~/.config/polybar/scripts/sysinfo.sh
+
+super + Tab
+      wallpaper
+
+super + t
+	notify-send -t 2000  $(date '+%H:%M')
+>>>>>>> 0d00436 (Update dotfiles)
