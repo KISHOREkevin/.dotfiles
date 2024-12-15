@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+randomWall(){
+  local wallpapers=($(ls ~/wallpapers/*))
+  local wallpapersCount=${#wallpapers[@]}
+  local randomNum=$(echo $(($RANDOM%$wallpapersCount)))
+  local wallpaper=${wallpapers[$randomNum]}
+  feh --bg-fill --no-fehbg $wallpaper
+  return 0
+}
+
+setSingleWall(){
+  local wallpapers=($(ls ~/wallpapers/*))
+  local wallpaperChoice=$(printf '%s\n' "${wallpapers[@]}" | rofi -dmenu -p "Select a wallpaper")
+  feh --bg-fill --no-fehbg $wallpaperChoice
+  return 0
+}
+
+declare -a first_choices=(
+  "Random wallpaper"
+  "Set a wallpaper"
+)
+
+choice=$(printf '%s\n' "${first_choices[@]}" | rofi -dmenu -theme-str 'inputbar { enabled: false; }')
+
+case $choice in
+  "Random wallpaper")
+    randomWall;;
+  "Set a wallpaper") setSingleWall;;
+esac

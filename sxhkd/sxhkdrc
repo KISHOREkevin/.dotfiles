@@ -30,3 +30,12 @@ super + p
 
 super + c
       rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
+super + i
+      $TERMINAL ~/.config/polybar/scripts/sysinfo.sh
+
+super + Tab
+      wallpaper
+
+super + t
+	notify-send -t 2000  $(date '+%H:%M')
