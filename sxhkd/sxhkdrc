@@ -34,7 +34,7 @@ super + c
 super + i
       $TERMINAL ~/.config/polybar/scripts/sysinfo.sh
 
-super + Tab
+super + shift + w
       wallpaper
 
 super + t
