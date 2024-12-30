@@ -11,7 +11,8 @@ choice=$(echo -e $options | rofi -dmenu -theme-str 'inputbar { enabled: false; }
 case $choice in
 $poweroffopt) shutdown now ;;
 $rebootopt) shutdown -r now ;;
-$logoutopt) i3 exit ;;
+$logoutopt) qtile cmd-obj -o cmd -f shutdown ;;
+#$logoutopt) i3 exit ;;
 $sleepopt)
   systemctl suspend
   i3lock -i $HOME/.config/xautolock/lockscreen.png
