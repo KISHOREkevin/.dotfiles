@@ -41,4 +41,10 @@ super + shift + w
 
 super + t
 	notify-send -t 2000  $(date '+%H:%M')
+<<<<<<< HEAD
 >>>>>>> 0d00436 (Update dotfiles)
+=======
+
+super + Tab
+  rofi -show window -theme-str "inputbar \{ enabled: false; \}"
+>>>>>>> 27d3c71 (Update dotfiles)
