@@ -39,3 +39,6 @@ super + shift + w
 
 super + t
 	notify-send -t 2000  $(date '+%H:%M')
+
+super + Tab
+  rofi -show window -theme-str "inputbar \{ enabled: false; \}"
