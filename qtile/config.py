@@ -37,8 +37,8 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "w", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "Right",lazy.group.next_window(),desc="Toggle between windows (next)"),
-    Key([mod],"Left",lazy.group.prev_window(),desc="Toggle between windows (previous)"),
+    Key([mod], "Right",lazy.layout.next(),desc="Toggle between windows (next)"),
+    Key([mod],"Left",lazy.layout.previous(),desc="Toggle between windows (previous)"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
