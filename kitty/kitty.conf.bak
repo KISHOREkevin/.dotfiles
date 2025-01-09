@@ -5,8 +5,10 @@
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
+ 
 
- font_family     ComicShannsMono Nerd Font
+
+ font_family     CaskaydiaCove Nerd Font
 # bold_font        auto
 # italic_font      auto
 # bold_italic_font auto
@@ -24,7 +26,7 @@
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
- font_size 15
+ font_size 13
 
 #: Font size (in pts).
 
@@ -249,8 +251,7 @@
 #: }}}
 
 #: Cursor customization {{{
-
-# cursor #cccccc
+# cursor #f38ba8
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. Its color will be
@@ -271,7 +272,7 @@
 #: so if you want to override it, place your value after the lines
 #: where the theme file is included.
 
-cursor_shape beam
+cursor_shape block
 
 #: The cursor shape can be one of block, beam, underline. Note that
 #: when reloading the config this will be changed only if the cursor
@@ -792,8 +793,8 @@ enable_audio_bell no
 #: Window layout {{{
 
  #remember_window_size  no
-# initial_window_width  950
- #initial_window_height 550
+#initial_window_width  1250
+ #initial_window_height 600
 
 #: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
@@ -848,7 +849,7 @@ enable_audio_bell no
 #: set the vertical and horizontal sides. Three values set top,
 #: horizontal and bottom. Four values set top, right, bottom and left.
 
-# window_padding_width 0
+window_padding_width 2
 
 #: The window padding (in pts) (blank area between the text and the
 #: window border). A single value sets all four sides. Two values set
@@ -1158,7 +1159,7 @@ enable_audio_bell no
 
 #: The foreground and background colors.
 
- #background_opacity 0.8
+#background_opacity 0.9
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1538,7 +1539,7 @@ enable_audio_bell no
 #: special value of ask means that kitty will ask before opening the
 #: link when clicked.
 
-#shell_integration no-cursor
+shell_integration no-cursor
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -2530,6 +2531,6 @@ enable_audio_bell no
 
 
 # BEGIN_KITTY_THEME
-# Dracula
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME
