@@ -1,5 +1,28 @@
-## My Distro
-Arch linux with qtile wm 
+## My Custom Distribution
+This project showcases my fully customized Arch Linux setup, also known as "rice." It includes a collection of personalized configurations, scripts, and tools designed to create an efficient, aesthetically pleasing, and productive environment. The setup features a highly customizable window manager (Qtile), custom shell configurations (Zsh), application launchers (Rofi), and various other utilities that enhance both the functionality and appearance of my Linux desktop.
+
+## Technologies Used:
+  - Linux Distribution: Arch Linux (or preferred distro)
+  - Window Manager: Qtile
+  - Shell: Zsh with custom prompt
+  - File Manager: Yazi
+  - Taskbar : Polybar
+  - Launcher : Rofi
+  - my custom rofi scripts
+  - Notification System: Dunst
+  - Compositor: Picom
+  - Scripting: Shell scripts for automation and setup
+  - Network management : NetworkManager
+  - bluetooth : blueman
+  - Shortcut keys management : sxkhd
+  - Version Control: Git, GitHub (for managing dotfiles and configurations)
+  - Neovim configuration : lua and Lazy package manager
+  - UI : GTK 
+  - Color pallete : Catpuccin , dracula and tokyo-night
+
+## Check my another project built with gtk and python
+  https://github.com/KISHOREkevin/pomodoro-timer
+
 ## Dependencies
 ```
 7zip
@@ -176,7 +199,8 @@ zsh-completions
 ## Usage 
 * Clone this repository
   ```
-  https://github.com/KISHOREkevin/.dotfiles.git
+  https://github.com/KISHOREkevin/.dotfiles.git .
+  cd .dotfiles
   ```
 * Change the `install.sh` file permission to executable
   ```
