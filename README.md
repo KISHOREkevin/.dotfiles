@@ -1,10 +1,193 @@
-## My Dotfiles 
-config files
+## My Distro
+Arch linux with qtile wm 
 ## Dependencies
-`sudo pacman -S networkManager pulseaudio-utils brightnessctl bat dunst fastfetch feh rofi i3-wm kitty mpv mpc mpc neovim picom polybar sxhkd xautolock yazi tty-clock` <br/> <br/> 
-`yay -S rofi-greenclip `'
-# For gaming (AMD pro)
-`sudo pacman -S lutris vulkan-radeon lib32-vulkan-radeon`
+```
+7zip
+acpi
+amd-ucode
+ani-cli
+atool
+base
+base-devel
+bat
+bc
+bind
+bleachbit
+blueman
+bluez
+bluez-utils
+breeze
+brightnessctl
+code
+cpupower
+cpupower-gui
+dmenu
+dnsmasq
+docker
+docker-buildx
+docker-compose
+dosfstools
+dpkg
+duf
+dunst
+eza
+fastfetch
+fd
+feh
+ffmpegthumbnailer
+firefox
+flatpak
+fortune-mod
+fzf
+gamemode
+geany
+gimp
+git
+gobject-introspection
+gparted
+grub
+gsimplecal
+gst-plugin-pipewire
+gufw
+gvfs
+highlight
+hostapd
+htop
+i3-wm
+i3blocks
+i3lock
+i3status
+imagemagick
+inetutils
+intel-media-driver
+iwd
+jdk-openjdk
+kitty
+kubectl
+lib32-sdl_image
+lib32-vulkan-radeon
+libpulse
+libqalculate
+libreoffice-fresh
+libva-intel-driver
+links
+linux
+linux-firmware
+linux-wifi-hotspot
+localsend-bin
+lsof
+luarocks
+lutris
+man-db
+mariadb
+mediainfo
+meson
+minikube
+mongodb-bin
+monit
+mpc
+mpd
+nano
+nemo
+neovim
+nerdfetch
+net-tools
+network-manager-applet
+networkmanager
+nodejs
+npm
+nwg-look
+obs-studio
+otf-comicshanns-nerd
+pacman-contrib
+papirus-folders-catppuccin-git
+pavucontrol
+picom
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+plocate
+polkit-gnome
+polybar
+python-dbus-next
+python-pipx
+qtile
+rclone
+redis
+reflector
+restfox-bin
+rofi
+rofi-greenclip
+rpm-tools
+rtaudio
+rust
+rustdesk-bin
+scrot
+smartmontools
+sxhkd
+thunderbird
+tldr
+tmux
+traceroute
+transmission-gtk
+trash-cli
+tree
+tty-clock
+ueberzug
+ufw
+unrar
+unzip
+usbutils
+vi
+vim
+vulkan-intel
+vulkan-radeon
+webp-pixbuf-loader
+wget
+wine-staging
+winetricks
+wireless_tools
+wireplumber
+xautolock
+xdg-utils
+xf86-video-amdgpu
+xf86-video-ati
+xf86-video-nouveau
+xf86-video-vmware
+xorg-server
+xorg-xev
+xorg-xinit
+xorg-xrandr
+yay
+yazi
+yt-dlp
+zathura
+zathura-pdf-mupdf
+zen-browser-bin
+zip
+zoxide
+zram-generator
+zsh
+zsh-completions
 
+```
+
+## Usage 
+* Clone this repository
+  ```
+  https://github.com/KISHOREkevin/.dotfiles.git
+  ```
+* Change the `install.sh` file permission to executable
+  ```
+  chmod +x install.sh
+  ```
+* Just run `install.sh`
+  ```
+  ./install.sh
+  ```
+* type `startx` and hit enter.
+
+  ### Enjoy using this config
 
 ![catppuccin](https://github.com/KISHOREkevin/.dotfiles/blob/main/output.png)
