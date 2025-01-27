@@ -214,4 +214,10 @@ zsh-completions
 
   ### Enjoy using this config
 
+## Demo usage
+Watch this video : <br> 
+[![Project Demo](https://img.youtube.com/vi/17vjFkud3OA/0.jpg)](https://www.youtube.com/watch?v=17vjFkud3OA)
+
+
+Screenshots:
 ![catppuccin](https://github.com/KISHOREkevin/.dotfiles/blob/main/output.png)
