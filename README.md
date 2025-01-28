@@ -212,7 +212,7 @@ zsh-completions
   ```
 * type `startx` and hit enter.
 
-  ### Enjoy using this config
+<b>Enjoy the taste of my distribution</b>
 
 ## Demo usage
 Watch this video : <br> 
