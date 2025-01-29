@@ -56,7 +56,6 @@ dunst
 eza
 fastfetch
 fd
-feh
 ffmpegthumbnailer
 firefox
 flatpak
@@ -149,6 +148,7 @@ rustdesk-bin
 scrot
 smartmontools
 sxhkd
+sxiv
 thunderbird
 tldr
 tmux
@@ -182,6 +182,7 @@ xorg-server
 xorg-xev
 xorg-xinit
 xorg-xrandr
+xwallpaper
 yay
 yazi
 yt-dlp
@@ -193,7 +194,6 @@ zoxide
 zram-generator
 zsh
 zsh-completions
-
 ```
 
 ## Usage 

@@ -30,7 +30,6 @@ dunst
 eza
 fastfetch
 fd
-feh
 ffmpegthumbnailer
 firefox
 flatpak
@@ -155,7 +154,10 @@ zip
 zoxide
 zram-generator
 zsh
-zsh-completions)
+zsh-completions
+sxiv
+xwallpaper
+)
 
 sudo pacman -S --needed ${pacmanPackages[@]}
 

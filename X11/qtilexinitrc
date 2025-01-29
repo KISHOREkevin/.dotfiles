@@ -1,7 +1,10 @@
 dunst &
 picom -b &
 sxhkd &
-feh --bg-fill --no-fehbg ~/wallpapers/simson.png &
+nm-applet &
+blueman-applet &
+~/.cache/wall &
+xrdb -merge .Xresources &
 polybar -r &
 greenclip daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
