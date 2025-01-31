@@ -2,9 +2,8 @@ from libqtile import bar, layout, qtile, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen,ScratchPad,DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
-
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 
 keys = [
@@ -80,7 +79,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus="#89b4fa",margin=2,margin_on_single=5, border_width=2),
+    layout.Columns(border_focus="#89b4fa",border_on_single="#89b4fa",margin=2,margin_on_single=5, border_width=2),
     layout.Max(margin=5) 
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -102,7 +101,122 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens=[]
+screens=[
+          Screen(
+         top=bar.Bar(
+             
+             [
+                widget.TextBox(
+                    text='  ',
+                    background="#89b4fa",
+                    foreground="#1e1e2e",
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} /home/kishore/.config/qtile/scripts/sysinfo.sh")}
+
+                ),  
+                widget.GroupBox(
+                    highlight_method='block',
+                    block_highlight_text_color="#f9e2af",
+                    this_current_screen_border="#313244",
+                    padding=5
+                    ),
+                widget.Spacer(
+                    length=398
+                ),
+                widget.DF(
+                    background="#313244",
+                    foreground="#f9e2af",
+                    visible_on_warn=False,
+                    partition="/home",
+                    format='   {uf}{m}/{s}{m} '
+                ),
+                widget.Sep(
+                    foreground="#313244"
+                    ),
+                widget.Memory(
+                    format='  {MemUsed: .2f}{mm}/{MemTotal: .2f}{mm} ',
+                    measure_mem='G',
+                    background="#313244",
+                    foreground="#f9e2af",
+                    update_interval=10
+                    ) ,
+                widget.Sep(
+                    foreground="#313244"
+                    ),
+                widget.Battery(
+                      background="#313244",
+                     foreground="#f9e2af",
+                     format=" 󰁹 {percent:2.0%} ",
+                     update_interval=10,
+                     low_foreground="#f38ba8",
+                     low_percentage=0.4,
+                     unknown_char="?",
+                     show_short_text=False,
+                     notify_below=40
+                 ),              
+                widget.Sep(
+                    foreground="#313244"
+                    ),
+
+                widget.Volume(
+                    background="#313244",
+                    foreground="#f9e2af", 
+                    get_volume_command='pactl get-sink-volume @DEFAULT_SINK@| awk -F " %" "{print $1}" | awk "{print $5}"',
+                    volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +10%",
+                    volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -10%",
+                    mute_command='pactl set-sink-mute @DEFAULT_SINK@ toggle',
+                    check_mute_command='pactl list sinks | grep -i -m 1 "Mute" | awk -F ":" "{print $2}"',
+                    check_mute_string="yes",
+                    unmute_format='   {volume}% ',
+                    mute_format='   {volume}% ',
+                        mute_foreground='#f38ba8'
+                                        ),
+                widget.Sep(
+                    foreground="#313244"
+                    ),
+
+                 widget.Backlight(
+                     backlight_name='amdgpu_bl1',
+                     format=" 󰃠 {percent:2.0%} ",
+                     background="#313244",
+                     foreground="#f9e2af"
+                     ),
+                widget.Sep(
+                    foreground="#313244"
+                    ),
+
+                 widget.Clock(
+                     format="  %d-%m-%Y %a | 󰥔 %H:%M ",
+                     background="#313244",
+                     foreground="#f9e2af"
+        
+                 ),
+                 widget.TextBox(
+                         text=" 󰎆 ",
+                         mouse_callbacks={
+                             "Button1": lambda: qtile.cmd_spawn("/home/kishore/.config/qtile/scripts/ambient-sounds.sh")
+                             }
+                         ),
+                 widget.Sep(
+                    foreground="#1e1e2e"
+                 ), 
+                 widget.Systray(),
+                 widget.Sep(
+                   foreground="#1e1e2e" 
+                 ),
+                 widget.TextBox(
+                         fmt=" ⏻ ",
+                         background="#89b4fa",
+                         foreground="#1e1e2e",
+                         mouse_callbacks={
+                             "Button1": lambda: qtile.cmd_spawn(f"/home/kishore/.config/qtile/scripts/poweroff.sh")
+                             }
+                         ) 
+             ],
+             24,
+             background="#1e1e2e",
+         ),
+            ),
+        ]
 
 # Drag floating layouts.
 mouse = [
