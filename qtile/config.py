@@ -119,9 +119,13 @@ screens=[
                     this_current_screen_border="#313244",
                     padding=5
                     ),
-                widget.Spacer(
-                    length=398
-                ),
+                widget.WindowName(
+                    foreground="#89b4fa" 
+                    ),
+                widget.Sep(
+                    foreground="#313244"  
+                )
+                ,
                 widget.DF(
                     background="#313244",
                     foreground="#f9e2af",
