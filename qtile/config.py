@@ -80,7 +80,7 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus="#89b4fa",border_on_single="#89b4fa",margin=2,margin_on_single=5, border_width=2),
-    layout.Max(margin=5) 
+    layout.Max(margin=5,border_focus="#89b4fa",border_width=2) 
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
