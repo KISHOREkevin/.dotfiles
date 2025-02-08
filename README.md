@@ -212,6 +212,13 @@ zsh-completions
 ## For GTK styling
 * Nwg-look
 
+## Image Viewer
+* Sxiv
+
+## File Manager
+* Yazi (CLI)
+* Nemo (GUI)
+
 ## Usage 
 * After the booting the `Arch Linux`
 * Clone this repository
