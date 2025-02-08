@@ -197,6 +197,7 @@ zsh-completions
 ```
 
 ## Usage 
+* After the booting the `Arch Linux`
 * Clone this repository
   ```
   https://github.com/KISHOREkevin/.dotfiles.git .
