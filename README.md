@@ -195,6 +195,19 @@ zram-generator
 zsh
 zsh-completions
 ```
+## Terminal Emulators Configurations
+* Alacritty
+* Ghostty
+* Kitty
+* Wezterm
+
+## Terminal multiplexer configurations
+* Zellij
+* Tmux
+
+## Text Editor configirations
+* Vim
+* Neovim
 
 ## Usage 
 * After the booting the `Arch Linux`
