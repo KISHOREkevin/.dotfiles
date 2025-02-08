@@ -209,6 +209,9 @@ zsh-completions
 * Vim
 * Neovim
 
+## For GTK styling
+* Nwg-look
+
 ## Usage 
 * After the booting the `Arch Linux`
 * Clone this repository
