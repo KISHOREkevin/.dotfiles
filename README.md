@@ -209,6 +209,10 @@ zsh-completions
 * Vim
 * Neovim
 
+## Window Managers Configurations
+* I3
+* Qtile
+
 ## For GTK styling
 * Nwg-look
 
