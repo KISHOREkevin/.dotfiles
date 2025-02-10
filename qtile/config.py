@@ -80,7 +80,8 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus="#89b4fa",border_on_single="#89b4fa",margin=2,margin_on_single=5, border_width=2),
-    layout.Max(margin=5,border_focus="#89b4fa",border_width=2) 
+    layout.Max(margin=5,border_focus="#89b4fa",border_width=2),
+    #layout.Spiral(main_pane="left",clockwise=False)
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
@@ -137,7 +138,7 @@ screens=[
                     foreground="#313244"
                     ),
                 widget.Memory(
-                    format='  {MemUsed: .2f}{mm}/{MemTotal: .2f}{mm} ',
+                    format='  {Available: .2f}{mm}/{MemTotal: .2f}{mm} ',
                     measure_mem='G',
                     background="#313244",
                     foreground="#f9e2af",
@@ -231,7 +232,7 @@ mouse = [
 
 # Scratchpad
 
-groups.append(ScratchPad(' ',[DropDown("terminal","kitty",width=0.6, height=0.6, x=0.20, y=0.20,opacity=1)]))
+groups.append(ScratchPad(' ',[DropDown("terminal","kitty",width=0.9, height=0.9, x=0.05, y=0.05,opacity=1)]))
 keys.extend(
         [
             Key([mod],"semicolon",lazy.group[' '].dropdown_toggle("terminal"))
