@@ -22,3 +22,5 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.updatetime = 300
 vim.opt.scrolloff = 8
+vim.o.wildmode="longest,list,full"
+

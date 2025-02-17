@@ -109,6 +109,10 @@ wk.add({
 })
 -- Neo tree keybind ---
 vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
+------
+vim.api.nvim_set_keymap("n", "p", ":r!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "p", ":r!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
+
 -- my config --
 vim.cmd("set number")
 vim.cmd("set expandtab")
