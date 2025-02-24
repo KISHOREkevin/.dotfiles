@@ -1,40 +1,42 @@
 super + space
       rofi -show drun
 
-super + d
-       dmenu_run -fn "CaskaydiaCove Nerd Font" -nb "#1e1e2e" -sb "#89b4fa" -sf "#313244" -l 10 
-
 XF86AudioRaiseVolume
-      ~/.config/sxhkd/scripts/volumecontrol.sh up
+      volumecontrol up
 
 XF86AudioLowerVolume
-      ~/.config/sxhkd/scripts/volumecontrol.sh down
+      volumecontrol down
 
 XF86AudioMute
-      ~/.config/sxhkd/scripts/volumecontrol.sh mute
+      volumecontrol mute
 
 XF86AudioMicMute
       pactl set-source-mute @DEFAULT_SOURCE@ toggle 
 
 XF86MonBrightnessUp
-      ~/.config/sxhkd/scripts/brightnesscontrol.sh up
+      brightnesscontrol up
 
 XF86MonBrightnessDown
-      ~/.config/sxhkd/scripts/brightnesscontrol.sh down
+      brightnesscontrol down
 super + l
       i3lock -i $HOME/.config/xautolock/lockscreen.png 
 
 super + m
-      ~/.config/sxhkd/scripts/ambient-sounds.sh
-
+      ambients
 super + p
-      ~/.config/sxhkd/scripts/poweroff.sh
+      powerscript
 
 super + c
       rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-super + i
-      $TERMINAL ~/.config/sxhkd/scripts/sysinfo.sh
+super + b
+      zen-browser
+
+super + e
+      $TERMINAL nvim
+
+super + shift + i
+      $TERMINAL sysinfo
 
 super + shift + w
       wallpaper

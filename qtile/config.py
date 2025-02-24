@@ -79,8 +79,8 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus="#89b4fa",border_on_single="#89b4fa",margin=2,margin_on_single=5, border_width=2),
-    layout.Max(margin=5,border_focus="#89b4fa",border_width=2),
+    layout.Columns(border_focus="#f5e0dc",border_on_single="#f5e0dc",margin=2,margin_on_single=5, border_width=2),
+    layout.Max(margin=5,border_focus="#f5e0dc",border_width=2),
     #layout.Spiral(main_pane="left",clockwise=False)
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -111,10 +111,11 @@ screens=[
                     text='  ',
                     background="#89b4fa",
                     foreground="#1e1e2e",
-                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} /home/kishore/.config/qtile/scripts/sysinfo.sh")}
+                    mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} sysinfo")}
 
                 ),  
                 widget.GroupBox(
+                    active="#89b4fa",
                     highlight_method='block',
                     block_highlight_text_color="#f9e2af",
                     this_current_screen_border="#313244",
@@ -198,7 +199,7 @@ screens=[
                  widget.TextBox(
                          text=" 󰎆 ",
                          mouse_callbacks={
-                             "Button1": lambda: qtile.cmd_spawn("/home/kishore/.config/qtile/scripts/ambient-sounds.sh")
+                             "Button1": lambda: qtile.cmd_spawn("ambients")
                              }
                          ),
                  widget.Sep(
@@ -213,7 +214,7 @@ screens=[
                          background="#89b4fa",
                          foreground="#1e1e2e",
                          mouse_callbacks={
-                             "Button1": lambda: qtile.cmd_spawn(f"/home/kishore/.config/qtile/scripts/poweroff.sh")
+                             "Button1": lambda: qtile.cmd_spawn(f"powerscript")
                              }
                          ) 
              ],
