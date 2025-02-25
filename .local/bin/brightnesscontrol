@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+brightnessnotify(){
+  local currentBrightness=$(brightnessctl -m | awk -F ',' '{print $4}')
+  notify-send -r 555 -t 2000 -h int:value:$currentBrightness "󰃠 Brightness :$currentBrightness"
+}
+
+brightnessup(){
+  brightnessctl -c backlight set +5%
+  brightnessnotify
+}
+
+brightnessdown(){
+  brightnessctl -c backlight set 5%-
+  brightnessnotify
+}
+
+choice=$1
+case "$choice" in
+  "up") brightnessup ;;
+  "down") brightnessdown ;;
+  *) echo "Enter valid arg ..." ;;
+esac
