@@ -5,8 +5,8 @@ configuration{
     display-drun: " 󰣇 ";
     display-run: " 󰣇 ";
     display-window:  " 󰣇 ";
-
+   
 }
 
-@theme "catppuccin-mocha"
+@theme "~/.config/rofi/themes/catppuccin-mocha.rasi"
 
