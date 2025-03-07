@@ -1,0 +1,12 @@
+configuration{
+    modi: "run,drun,window";
+    terminal: "kitty";
+    disable-history: true; 
+    display-drun: " 󰣇 ";
+    display-run: " 󰣇 ";
+    display-window:  " 󰣇 ";
+    
+}
+
+@theme "~/.local/bin/powerscript-style/powermenu.rasi"
+
