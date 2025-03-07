@@ -7,7 +7,7 @@
     fg-col: #cdd6f4;
     fg-col2: #313244;
     grey: #6c7086;
-    width: 500;
+    width: 800;
     font: "CaskaydiaCove Nerd Font 13";
 }
 
@@ -21,7 +21,7 @@ window {
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
-  
+    border-radius:5px; 
 }
 
 mainbox {
@@ -33,6 +33,7 @@ inputbar {
     background-color: @blue;
     padding: 2px;
     margin:2px;
+    border-radius:5px;
 
 }
 
@@ -55,12 +56,13 @@ listview {
   
     padding: 6px;
     margin: 10px;
-    lines:12; 
+    lines:6;
+    columns:2;
     background-color: @bg-col;
 }
 
 element {
-    padding: 5px;
+    padding: 10px;
     background-color: @bg-col;
     text-color: @fg-col  ;
 }
@@ -70,7 +72,7 @@ element {
 element selected {
     background-color:  @selected-col ;
     text-color: @fg-col2  ;
-  
+    border-radius:5px; 
 }
 
 mode-switcher {
