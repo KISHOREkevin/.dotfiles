@@ -39,6 +39,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.nvim_workspace()
 lsp.setup()
+
 local lspconfig = require("lspconfig")
 local configs = require("lspconfig/configs")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -80,8 +81,9 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- keymaps for buffers
-vim.keymap.set('n','<leader>bn',":bn<CR>")
-vim.keymap.set('n','<leader>bd',':bdelete!<CR>:bn<CR>')
+ 
+vim.keymap.set('n','<M-Tab>',":bn<CR>")
+vim.keymap.set('n','<M-d>',':bdelete!<CR>:bn<CR>')
 -- config for whichkey --
 local wk = require("which-key")
 wk.add({
@@ -89,11 +91,9 @@ wk.add({
   { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
   { "<leader>fb", "<cmd>Telescope buffers<cr>",desc= "find buffers",mode = "n" },
   { "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>",desc="search word",mode="n"},
-  {"<leader>bn",desc="buffer next"},
-  {"<leader>bd",desc="buffer delete"},
-  { "<leader>fn", desc = "New File" },
-  { "<leader>f1", hidden = true }, -- hide this keymap
-  { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
+  {"<M-Tab>",desc="buffer next"},
+  {"<M-d>",desc="buffer delete"},
+      { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
   { "<leader>b", group = "buffers", expand = function()
       return require("which-key.extras").expand.buf()
     end
@@ -108,10 +108,16 @@ wk.add({
   }
 })
 -- Neo tree keybind ---
-vim.keymap.set("n","<leader>e",":Neotree float filesystem reveal left  toggle <CR>")
+vim.keymap.set("n","<leader>e",":Neotree reveal left  toggle  <CR>")
+vim.keymap.set("n","<C-b>",":Neotree focus <CR>")
+vim.lsp.set_log_level("debug")
 ------
-vim.api.nvim_set_keymap("n", "p", ":r!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "p", ":r!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("v", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
+
+-- Undotree keybind
+local undotree = require("undotree")
+vim.keymap.set("n","<leader>u", undotree.toggle,{} )
 
 -- my config --
 vim.cmd("set number")
