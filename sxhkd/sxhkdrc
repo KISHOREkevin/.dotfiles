@@ -39,7 +39,7 @@ super + shift + i
       $TERMINAL sysinfo
 
 super + shift + w
-      wallpaper
+      wallpaper menu
 
 super + t
 	notify-send -t 2000  $(date '+%H:%M')
