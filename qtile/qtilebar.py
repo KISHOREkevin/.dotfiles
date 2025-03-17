@@ -88,7 +88,8 @@ myBar=bar.Bar(
                  widget.TextBox(
                     text=" 󰸉 ",
                     mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn("wallpaper random")
+                        "Button1": lambda: qtile.cmd_spawn("wallpaper random"),
+                        "Button3": lambda: qtile.cmd_spawn("wallpaper set")
                     }
                  ),
                  widget.Sep(
