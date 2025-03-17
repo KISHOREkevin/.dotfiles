@@ -84,7 +84,13 @@ myBar=bar.Bar(
                          mouse_callbacks={
                              "Button1": lambda: qtile.cmd_spawn("ambients")
                              }
-                         ),
+                 ),
+                 widget.TextBox(
+                    text=" 󰸉 ",
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn("wallpaper random")
+                    }
+                 ),
                  widget.Sep(
                     foreground=colors["widgetfg"],
                     linewidth=3
@@ -107,7 +113,7 @@ myBar=bar.Bar(
          )
 
 othertweaks=dict(
-    font="CaskaydiaCove Nerd Font",
+    font="JetBrainsMonoNL Nerd Font",
     fontsize=14,
     padding=3,
 )
