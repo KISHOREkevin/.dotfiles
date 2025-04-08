@@ -35,6 +35,9 @@ super + b
 super + e
       $TERMINAL nvim
 
+super + f
+     nemo 
+
 super + shift + i
       $TERMINAL sysinfo
 
@@ -46,3 +49,6 @@ super + t
 
 super + Tab
   rofi -show window -theme-str "inputbar \{ enabled: false; \}"
+
+control + Print
+  flameshot gui

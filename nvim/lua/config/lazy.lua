@@ -115,6 +115,9 @@ vim.lsp.set_log_level("debug")
 -- vim.api.nvim_set_keymap("n", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("v", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
 
+-- Code format
+vim.keymap.set("n","<S-i>",":LspZeroFormat <CR>")
+
 -- Undotree keybind
 local undotree = require("undotree")
 vim.keymap.set("n","<leader>u", undotree.toggle,{} )
@@ -125,4 +128,6 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("nnoremap <Down> gj")
+vim.cmd("nnoremap <Up> gk")
 vim.cmd(":inoremap <Space> <Space><C-g>u")

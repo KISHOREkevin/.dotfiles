@@ -18,8 +18,7 @@ myBar=bar.Bar(
                     this_current_screen_border=colors["widgetbg"],
                     padding=5
                     ),
-                widget.Spacer()
-                    ,
+                widget.Spacer(),
                 widget.Sep(
                     foreground=colors["widgetfg"]  
                 )
@@ -28,17 +27,24 @@ myBar=bar.Bar(
                     foreground=colors["widgetfg"],
                     linewidth=3
                     ),
-                widget.Battery(
-                      background=colors["widgetbg"],
-                     foreground=colors["widgetfg"],
-                     format=" 󰁹 {percent:2.0%} ",
-                     update_interval=10,
-                     low_foreground=colors["danger"],
-                     low_percentage=0.4,
-                     unknown_char="?",
-                     show_short_text=False,
-                     notify_below=40
-                 ),              
+                # widget.Battery(
+                #       background=colors["widgetbg"],
+                #      foreground=colors["widgetfg"],
+                #      format=" 󰁹 {percent:2.0%} ",
+                #      update_interval=10,
+                #      low_foreground=colors["danger"],
+                #      low_percentage=0.4,
+                #      unknown_char="?",
+                #      show_short_text=False,
+                #      notify_below=40
+                #  ),
+                widget.DF(
+                    background=colors["widgetbg"],
+                    foreground=colors["widgetfg"],
+                    format='  {uf} {m} / {s} {m} ',
+                    partition="/home",
+                    visible_on_warn = False
+                    ),
                 widget.Sep(
                     foreground=colors["widgetfg"],
                     linewidth=3
