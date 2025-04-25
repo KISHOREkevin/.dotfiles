@@ -3,9 +3,9 @@ picom -b &
 sxhkd &
 nm-applet &
 blueman-applet &
+xgamma -gamma 0.7 &
 ~/.cache/wall &
 xrdb -merge .Xresources &
-polybar -r &
 greenclip daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 xautolock -time 10  -locker "i3lock -i $HOME/.config/xautolock/lockscreen.png" &
