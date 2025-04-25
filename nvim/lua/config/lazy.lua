@@ -31,7 +31,7 @@ require("lazy").setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
 
 -- lsp config
@@ -130,4 +130,9 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("nnoremap <Down> gj")
 vim.cmd("nnoremap <Up> gk")
+vim.cmd("inoremap <Down> <C-o>gj")
+vim.cmd("inoremap <Up> <C-o>gk")
+vim.cmd("vnoremap <Down> gj")
+vim.cmd("vnoremap <Up> gk")
 vim.cmd(":inoremap <Space> <Space><C-g>u")
+vim.o.cmdheight=0
