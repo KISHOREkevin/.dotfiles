@@ -19,7 +19,7 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
       brightnesscontrol down
 super + l
-      i3lock -i $HOME/.config/xautolock/lockscreen.png 
+     slock 
 
 super + m
       ambients
@@ -35,7 +35,7 @@ super + b
 super + e
       $TERMINAL nvim
 
-super + f
+super + shift + f
      nemo 
 
 super + shift + i

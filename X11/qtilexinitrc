@@ -8,7 +8,7 @@ xgamma -gamma 0.7 &
 xrdb -merge .Xresources &
 greenclip daemon &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-xautolock -time 10  -locker "i3lock -i $HOME/.config/xautolock/lockscreen.png" &
+xautolock -time 10  -locker "slock" &
 dbus-update-activation-environment DISPLAY &
 exec qtile start 
 #exec i3

@@ -53,6 +53,7 @@ pacmanPackages=(
   rofi-greenclip
   scrot
   speedtest-cli
+  slock
   sxhkd
   sxiv
   tldr
