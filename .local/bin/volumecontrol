@@ -3,38 +3,58 @@
 volumenotify(){
   local currentVolume=$(pactl get-sink-volume @DEFAULT_SINK@| awk -F '%' '{print $1}' | awk '{print $5}')
   notify-send -r 555 -t 2000 -h int:value:$currentVolume " Volume : $currentVolume %"
-}
+  }
 
 volumemutenotify(){
   mutestatus=$( pactl list sinks | grep -m 1 -A 6 $(pactl get-default-sink) | grep "Mute" | awk -F ":" '{print $2}')
 
 
   if [ $mutestatus == "yes" ]; then
-    notify-send -t 1000 "󰝟  mute : on"
+    notify-send -t 1000 "󰝟  Mute : on"
   else
-    notify-send -t 1000 "  mute : off"
+    notify-send -t 1000 "  Mute : off"
   fi
 }
 
 volumeup(){
   pactl set-sink-volume @DEFAULT_SINK@ +10%;
   volumenotify
-}
+  }
 
 volumedown(){
   pactl set-sink-volume @DEFAULT_SINK@ -10%;
   volumenotify
-}
+ }
 
 volumemute(){
   pactl set-sink-mute @DEFAULT_SINK@ toggle  
   volumemutenotify
 }
 
+getvolume(){
+  local currentVolume=$(pactl get-sink-volume @DEFAULT_SINK@| awk -F ' %' '{print $1}' | awk '{print $5}')
+  echo $currentVolume
+}
+
+getmute(){
+   mutestatus=$( pactl list sinks | grep -m 1 -A 6 $(pactl get-default-sink) | grep "Mute" | awk -F ":" '{print $2}')
+
+
+  if [ $mutestatus == "yes" ]; then
+        echo "on"
+  else
+        echo "off"
+  fi
+
+}
+
+
 choice=$1
 case "$choice" in
   "up") volumeup ;;
   "down") volumedown ;;
   "mute") volumemute ;;
+  "get-volume") getvolume ;;
+  "get-mute") getmute ;;
   *) echo "give appropriate arg..." ;;
 esac
