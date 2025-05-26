@@ -6,7 +6,7 @@ volumenotify(){
 }
 
 volumemutenotify(){
-  mutestatus=$( pactl list sinks | grep -i -m 1  "Mute" | awk -F ":" '{print $2}')
+  mutestatus=$( pactl list sinks | grep -m 1 -A 6 $(pactl get-default-sink) | grep "Mute" | awk -F ":" '{print $2}')
 
 
   if [ $mutestatus == "yes" ]; then
