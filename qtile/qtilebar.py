@@ -57,7 +57,7 @@ myBar=bar.Bar(
                     volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +10%",
                     volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -10%",
                     mute_command='pactl set-sink-mute @DEFAULT_SINK@ toggle',
-                    check_mute_command='pactl list sinks | grep -i -m 1 "Mute" | awk -F ":" "{print $2}"',
+                    check_mute_command='pactl list sinks | grep -m 1 -A 6 $(pactl get-default-sink) | grep "Mute" | awk -F ":" "{print $2}"',
                     check_mute_string="yes",
                     unmute_format='   {volume}% ',
                     mute_format='   {volume}% ',
@@ -102,7 +102,9 @@ myBar=bar.Bar(
                     foreground=colors["widgetfg"],
                     linewidth=3
                  ), 
-                 widget.Systray(),
+                 widget.Systray( 
+                         hide_crash=True
+                         ),
                  widget.Sep(
                    foreground=colors["widgetfg"]
                  ),

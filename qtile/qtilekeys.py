@@ -44,5 +44,6 @@ mykeys=[
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod],"m",lazy.window.toggle_maximize(),desc="Toggle Maximize"),
     ]
 
