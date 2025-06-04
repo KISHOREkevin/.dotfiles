@@ -14,7 +14,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
@@ -34,65 +33,30 @@ require("lazy").setup({
   checker = { enabled = false },
 })
 
--- lsp config
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
-lsp.nvim_workspace()
-lsp.setup()
 
-local lspconfig = require("lspconfig")
-local configs = require("lspconfig/configs")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-lspconfig.emmet_ls.setup({
-	-- on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = {
-		"css",
-		"eruby",
-		"html",
-		"javascript",
-		"javascriptreact",
-		"less",
-		"sass",
-		"typescript",
-		"scss",
-		"svelte",
-		"pug",
-		"typescriptreact",
-		"vue",
-	},
-	init_options = {
-		html = {
-			options = {
-				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-				["bem.enabled"] = true,
-			},
-		},
-	},
-})
--- keymaps for telescope--
-local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fs', builtin.current_buffer_fuzzy_find,{})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<M-S-i>', function () vim.lsp.buf.format { async = true } end, {})
+vim.keymap.set('n',"<leader>ff",function () Snacks.picker.explorer() end)
+vim.keymap.set('n', '<leader>fs',function () Snacks.picker.grep_word()  end,{})
+vim.keymap.set('n', '<leader>fb', function ()  Snacks.picker.buffers() end, {})
+vim.keymap.set('n', '<leader>fh', function () Snacks.picker.help() end , {})
 
 -- keymaps for buffers
  
-vim.keymap.set('n','<M-Tab>',":bn<CR>")
-vim.keymap.set('n','<M-d>',':bdelete!<CR>:bn<CR>')
+vim.keymap.set('n','<M-Tab>',function () Snacks.picker.buffers() end)
+vim.keymap.set('n','<M-d>',function () Snacks.bufdelete() end,{})
+vim.keymap.set('n',"<M-S-d>",function () Snacks.bufdelete.other() end,{})
+vim.keymap.set('n','<leader>e',function () Snacks.picker.files() end,{})
 -- config for whichkey --
 local wk = require("which-key")
 wk.add({
   { "<leader>f", group = "file" }, -- group
-  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-  { "<leader>fb", "<cmd>Telescope buffers<cr>",desc= "find buffers",mode = "n" },
-  { "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>",desc="search word",mode="n"},
+  { "<leader>ff", desc = "Find File", mode = "n" },
+  { "<leader>fb",desc= "find buffers",mode = "n" },
+  { "<leader>fs", desc="search word",mode="n"},
   {"<M-Tab>",desc="buffer next"},
   {"<M-d>",desc="buffer delete"},
+  {"<M-S-d>",desc="Other buffer delete"},
       { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
   { "<leader>b", group = "buffers", expand = function()
       return require("which-key.extras").expand.buf()
@@ -107,10 +71,6 @@ wk.add({
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
   }
 })
--- Neo tree keybind ---
-vim.keymap.set("n","<leader>e",":Neotree reveal left  toggle  <CR>")
-vim.keymap.set("n","<C-b>",":Neotree focus <CR>")
-vim.lsp.set_log_level("debug")
 ------
 -- vim.api.nvim_set_keymap("n", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("v", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
@@ -136,3 +96,4 @@ vim.cmd("vnoremap <Down> gj")
 vim.cmd("vnoremap <Up> gk")
 vim.cmd(":inoremap <Space> <Space><C-g>u")
 vim.o.cmdheight=0
+
