@@ -8,5 +8,5 @@ configuration{
     
 }
 
-@theme "~/.local/bin/powerscript-style/powermenu.rasi"
+@theme "powermenu.rasi"
 

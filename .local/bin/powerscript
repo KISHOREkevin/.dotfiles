@@ -4,10 +4,11 @@ poweroffopt='⏻ Poweroff'
 rebootopt=' Reboot'
 logoutopt='󰗽 Logout'
 sleepopt='󰒲 Sleep'
-cancelopt=' Cancel'
-declare options="$poweroffopt\n$rebootopt\n$logoutopt\n$sleepopt\n$cancelopt"
 
-choice=$(echo -e $options | rofi -dmenu -theme-str 'inputbar { enabled: false; }')
+declare options="$poweroffopt\n$rebootopt\n$logoutopt\n$sleepopt"
+
+
+choice=$(echo -e $options | rofi -dmenu -config $HOME/.local/share/powerscript/config.rasi -theme-str 'inputbar { enabled: false; }')
 case $choice in
 $poweroffopt) shutdown now ;;
 $rebootopt) shutdown -r now ;;
@@ -15,7 +16,7 @@ $logoutopt) qtile cmd-obj -o cmd -f shutdown ;;
 #$logoutopt) i3 exit ;;
 $sleepopt)
   systemctl suspend
-  i3lock -i $HOME/.config/xautolock/lockscreen.png
+  slock
   ;;
 $cancelopt) exit 0 ;;
 *) exit 0 ;;

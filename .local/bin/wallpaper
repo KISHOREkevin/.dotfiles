@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+randomWall(){
+  local wallpapers=($(ls ~/wallpapers/*))
+  local wallpapersCount=${#wallpapers[@]}
+  local randomNum=$(echo $(($RANDOM%$wallpapersCount)))
+  local wallpaper=${wallpapers[$randomNum]}
+  xwallpaper --stretch $wallpaper
+  echo "xwallpaper --stretch $wallpaper" > ~/.cache/wall
+}
+
+setSingleWall(){
+  
+  local wallpaperChoice=$(sxiv -t -q -b -o ~/wallpapers)
+  if [ -z $wallpaperChoice ]; then 
+    exit 0
+  else
+    echo "xwallpaper --stretch $wallpaperChoice" > ~/.cache/wall
+    xwallpaper --stretch $wallpaperChoice 2> /dev/null
+  fi
+}
+
+wallmenu(){
+declare -a first_choices=(
+  "Random wallpaper"
+  "Set a wallpaper"
+)
+
+local choice=$(printf '%s\n' "${first_choices[@]}" | rofi -dmenu -config $HOME/.local/share/wallpaper/config.rasi -theme-str 'inputbar { enabled: false; }')
+
+case $choice in
+  "Random wallpaper")
+    randomWall;;
+  "Set a wallpaper") setSingleWall;;
+esac
+}
+
+choice=$1
+case $choice in
+  random)
+    randomWall;;
+  "set")
+    setSingleWall;;
+  menu)
+    wallmenu;;
+  *)
+    echo "Enter valid argument...."
+esac
+
+

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+declare -a audioprofiles=($(pactl list sinks | grep "Name:" | awk '{print $2}'))
+
+audioprofile=$(printf "%s\n" ${audioprofiles[@]}| rofi -dmenu -config $HOME/.local/share/audioprofile/config.rasi -theme-str 'inputbar { enabled: false; }' )
+
+if [[ -n "$audioprofile" ]]; then
+  pactl set-default-sink $audioprofile
+  notify-send -t 5000 "Audio Profile : $audioprofile"
+fi
+

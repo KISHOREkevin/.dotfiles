@@ -1,0 +1,9 @@
+configuration{
+    modi: "run,drun,window";
+    terminal: "kitty";
+    disable-history: true; 
+    location:6; 
+}
+
+@theme "audioprofile.rasi"
+

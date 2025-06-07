@@ -1,0 +1,9 @@
+configuration{
+    modi: "run,drun,window";
+    terminal: "kitty";
+    disable-history: true;
+    location:7;
+}
+
+@theme "wallpapermenu.rasi"
+
