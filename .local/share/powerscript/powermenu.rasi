@@ -1,27 +1,21 @@
 * {
     bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
     border-col: #1e1e2e;
-    selected-col: #89b4fa;
-    blue: #89b4fa;
+    selected-col: #89b4fa; 
     fg-col: #cdd6f4;
-    fg-col2: #313244;
-    grey: #6c7086;
-    width: 380;
-    font: "JetBrainsMonoNL Nerd Font 13";
+    width: 350;
+    font: "JetBrainsMonoNL Nerd Font 20";
 }
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;
-    text-color:       inherit;
+    text-color: inherit;
 }
 
 window {
     
-    border: 3px;
-    border-color: @border-col;
     background-color: @bg-col;
-    border-radius:5px;
+    border-radius:10px;
   
 }
 
@@ -30,26 +24,32 @@ mainbox {
 }
 
 listview { 
-    padding: 6px;
-    margin: 6px;
+    padding: 10px;
+    margin: 10px;
     lines:2;
     columns:2;
+    orientation:horizontal;
     background-color: @bg-col;
 }
 
 element {
-    padding: 30px;
-    orientation:horizontal;
+    margin: 5px;
+    padding: 40px ;
     background-color: @bg-col;
     text-color: @fg-col  ;
+    background-color : #313244;
+    border-radius : 10px;
+}
+
+element-text{
+    horizontal-align: 0.45;
 }
 
 
 
 element selected {
     background-color:  @selected-col ;
-    text-color: @fg-col2  ;
-    border-radius:5px; 
+    text-color: @bg-col  ;
 }
 
 

@@ -18,7 +18,7 @@ randommusic(){
 listallmusic(){
   mpc clear 
   local songs=$(mpc ls)
-  local song=$(printf '%s\n' "${songs[@]}" | rofi -dmenu -config $HOME/.local/share/ambients/config.rasi  -p " ")
+  local song=$(printf '%s\n' "${songs[@]}" | rofi -dmenu -config $HOME/.local/share/ambients/songlistConfig.rasi  -p " ")
   mpc add $song
   mpc repeat true
   mpc random false
@@ -37,26 +37,26 @@ stopmusic(){
   mpc stop
   mpc clear
 }
-declare -a options=(
-  "Next song"
-  "Prev song"
-  "Random Music"
-  "Play a music"
-  "Resume current music"
-  "Pause Music"
-  "Stop Music"
 
-)
+nextSong="󰒭"
+prevSong="󰒮"
+randomMusic=""
+playaMusic=""
+resumeCurrentSong=""
+pauseSong=""
+stopMusic=""
+
+declare -a options=( $prevSong $nextSong  $randomMusic $playaMusic $resumeCurrentSong $pauseSong $stopMusic) 
 
 choice=$( printf '%s\n' "${options[@]}" | rofi -dmenu -config $HOME/.local/share/ambients/config.rasi -p " ") 
 
 case $choice in
-  "Next song") nextsong ;;
-  "Prev song") prevsong ;;
-  "Random Music") randommusic ;;
-  "Play a music") listallmusic ;;
-  "Resume current music") resumemusic ;;
-  "Pause Music") pausemusic ;;
-  "Stop Music") stopmusic ;;
+  $nextSong) nextsong ;;
+  $prevSong) prevsong ;;
+  $randomMusic) randommusic ;;
+  $playaMusic) listallmusic ;;
+  $resumeCurrentSong) resumemusic ;;
+  $pauseSong) pausemusic ;;
+  $stopMusic) stopmusic ;;
   *) exit 0 ;;
 esac

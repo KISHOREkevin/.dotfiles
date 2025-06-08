@@ -20,17 +20,21 @@ setSingleWall(){
 }
 
 wallmenu(){
+
+local randomwallpaper=""
+local setwallpaper="󰸉"
 declare -a first_choices=(
-  "Random wallpaper"
-  "Set a wallpaper"
+  $randomwallpaper
+  $setwallpaper
 )
 
 local choice=$(printf '%s\n' "${first_choices[@]}" | rofi -dmenu -config $HOME/.local/share/wallpaper/config.rasi -theme-str 'inputbar { enabled: false; }')
 
 case $choice in
-  "Random wallpaper")
+  $randomwallpaper)
     randomWall;;
-  "Set a wallpaper") setSingleWall;;
+  $setwallpaper) 
+    setSingleWall;;
 esac
 }
 

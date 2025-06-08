@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-poweroffopt='⏻ Poweroff'
-rebootopt=' Reboot'
-logoutopt='󰗽 Logout'
-sleepopt='󰒲 Sleep'
+poweroffopt='󰤆'
+rebootopt=''
+logoutopt='󰗽'
+sleepopt='󰒲  '
 
-declare options="$poweroffopt\n$rebootopt\n$logoutopt\n$sleepopt"
+declare -a options=($poweroffopt $rebootopt $logoutopt $sleepopt)
 
 
-choice=$(echo -e $options | rofi -dmenu -config $HOME/.local/share/powerscript/config.rasi -theme-str 'inputbar { enabled: false; }')
+choice=$(printf "%s\n" ${options[@]} | rofi -dmenu -config $HOME/.local/share/powerscript/config.rasi -theme-str 'inputbar { enabled: false; }')
 case $choice in
 $poweroffopt) shutdown now ;;
 $rebootopt) shutdown -r now ;;

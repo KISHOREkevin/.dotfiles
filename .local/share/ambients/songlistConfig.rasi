@@ -2,8 +2,7 @@ configuration{
     modi: "run,drun,window";
     terminal: "kitty";
     disable-history: true; 
-    location:0; 
+    location:5; 
 }
-
-@theme "audioprofile.rasi"
+@theme "songlist.rasi"
 
