@@ -2,7 +2,7 @@ configuration{
     modi: "run,drun,window";
     terminal: "kitty";
     disable-history: true; 
-    location:5; 
+    location:0; 
 }
 
 @theme "ambientmenu.rasi"
