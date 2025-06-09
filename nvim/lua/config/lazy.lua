@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -28,61 +28,70 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "catppuccin" } },
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
 
 
 
-vim.keymap.set('n', '<M-S-i>', function () vim.lsp.buf.format { async = true } end, {})
-vim.keymap.set('n',"<leader>ff",function () Snacks.picker.explorer() end)
-vim.keymap.set('n', '<leader>fs',function () Snacks.picker.grep_word()  end,{})
-vim.keymap.set('n', '<leader>fb', function ()  Snacks.picker.buffers() end, {})
-vim.keymap.set('n', '<leader>fh', function () Snacks.picker.help() end , {})
+vim.keymap.set('n', '<M-S-i>', function() vim.lsp.buf.format { async = true } end, {})
+vim.keymap.set('n', "<leader>ff", function() Snacks.picker.files() end)
+vim.keymap.set('n', '<leader>fs', function() Snacks.picker.grep_word() end, {})
+vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, {})
+vim.keymap.set('n', '<leader>fh', function() Snacks.picker.help() end, {})
 
 -- keymaps for buffers
- 
-vim.keymap.set('n','<M-Tab>',function () Snacks.picker.buffers() end)
-vim.keymap.set('n','<M-d>',function () Snacks.bufdelete() end,{})
-vim.keymap.set('n',"<M-S-d>",function () Snacks.bufdelete.other() end,{})
-vim.keymap.set('n','<leader>e',function () Snacks.picker.files() end,{})
+
+vim.keymap.set('n', '<M-Tab>', function() Snacks.picker.buffers() end)
+vim.keymap.set('n', '<M-d>', function() Snacks.bufdelete() end, {})
+vim.keymap.set('n', "<M-S-d>", function() Snacks.bufdelete.other() end, {})
+vim.keymap.set('n', '//', function()
+  local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+  if #explorer_pickers == 0 then
+    Snacks.picker.explorer()
+    -- elseif explorer_pickers[1]:is_focused() then
+    -- 	explorer_pickers[1]:close()
+  else
+    explorer_pickers[1]:focus()
+  end
+end, {})
 -- config for whichkey --
 local wk = require("which-key")
 wk.add({
-  { "<leader>f", group = "file" }, -- group
-  { "<leader>ff", desc = "Find File", mode = "n" },
-  { "<leader>fb",desc= "find buffers",mode = "n" },
-  { "<leader>fs", desc="search word",mode="n"},
-  {"<M-Tab>",desc="buffer next"},
-  {"<M-d>",desc="buffer delete"},
-  {"<M-S-d>",desc="Other buffer delete"},
-      { "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
-  { "<leader>b", group = "buffers", expand = function()
+  { "<leader>f",  group = "file" }, -- group
+  { "<leader>ff", desc = "Find File",          mode = "n" },
+  { "<leader>fb", desc = "find buffers",       mode = "n" },
+  { "<leader>fs", desc = "search word",        mode = "n" },
+  { "<M-Tab>",    desc = "buffer next" },
+  { "<M-d>",      desc = "buffer delete" },
+  { "<M-S-d>",    desc = "Other buffer delete" },
+  { "<leader>w",  proxy = "<c-w>",             group = "windows" }, -- proxy to window mappings
+  {
+    "<leader>b",
+    group = "buffers",
+    expand = function()
       return require("which-key.extras").expand.buf()
     end
   },
   {
-    -- Nested mappings are allowed and can be added in any order
-    -- Most attributes can be inherited or overridden on any level
-    -- There's no limit to the depth of nesting
-    mode = { "n", "v" }, -- NORMAL and VISUAL mode
+    mode = { "n", "v" },                          -- NORMAL and VISUAL mode
     { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
   }
 })
-------
--- vim.api.nvim_set_keymap("n", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("v", "p", ":!greenclip print | head -n 1<CR>", { noremap = true, silent = true })
 
--- Code format
-vim.keymap.set("n","<S-i>",":LspZeroFormat <CR>")
 
 -- Undotree keybind
 local undotree = require("undotree")
-vim.keymap.set("n","<leader>u", undotree.toggle,{} )
+vim.keymap.set("n", "<leader>u", undotree.toggle, {})
+
+-- minimap keybind
+vim.keymap.set('n', "<leader>mm", function() MiniMap.toggle() end, { desc = "Mini mao Toggle" })
+vim.keymap.set("n", "<leader>mf", function() MiniMap.toggle_focus() end, { desc = "Toggle minimap focus" })
 
 -- my config --
+vim.g.snacks_animate = true
 vim.cmd("set number")
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
@@ -95,5 +104,4 @@ vim.cmd("inoremap <Up> <C-o>gk")
 vim.cmd("vnoremap <Down> gj")
 vim.cmd("vnoremap <Up> gk")
 vim.cmd(":inoremap <Space> <Space><C-g>u")
-vim.o.cmdheight=0
-
+vim.o.cmdheight = 0

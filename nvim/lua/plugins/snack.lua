@@ -4,29 +4,15 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+   
     bigfile = { enabled = true },
     dashboard = {
-      preset = {
+      preset = { 
         -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
-        -- Used by the `keys` section to show keymaps.
-        -- Set your custom keymaps here.
-        -- When using a function, the `items` argument are the default keymaps.
-        ---@type snacks.dashboard.Item[]
-        keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
-          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-          { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-        },
+               ---@type snacks.dashboard.Item[]
+        
         -- Used by the `header` section
         header = [[
  ______          __                  _______           __
@@ -37,7 +23,14 @@ return {
       sections = {
         { section = "header" },
 
-        { icon = " ", title = "Recent Files", section = "recent_files", limit = 10, indent = 2, padding = 1 },
+        {
+          icon = " ",
+          title = "Recent Files",
+          section = "recent_files",
+          limit = 10,
+          indent = 2,
+          padding = 1
+        },
         { section = "startup" },
       },
     },
@@ -48,10 +41,17 @@ return {
       enabled = true,
       hidden = true,
       sources = {
-        files = { finder = "files", format = "file", hidden = true, ignored = false, follow = true, layout = { preset = "bottom" }, exclude = { "Games" } },
+        files = {
+          finder = "files",
+          format = "file",
+          hidden = true,
+          follow = true,
+          layout = { preset = "bottom" },
+          exclude = { "Games" }
+        },
         explorer = {
           finder = "explorer",
-          hidden = false,
+          hidden = true,
           sort = { fields = { "sort" } },
           supports_live = true,
           tree = true,
@@ -76,8 +76,8 @@ return {
             return require("snacks.picker.source.explorer").setup(opts)
           end,
 
-          layout = { preset = "bottom", preview = true, cycle = false },
-          auto_close = true,
+          layout = { preset = "sidebar",preview=false, cycle = false,layout={width=25} },
+          auto_close = false,
           win = {
             list = {
               keys = {
