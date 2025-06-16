@@ -4,15 +4,15 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-   
+
     bigfile = { enabled = true },
     dashboard = {
-      preset = { 
+      preset = {
         -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
         ---@type fun(cmd:string, opts:table)|nil
         pick = nil,
-               ---@type snacks.dashboard.Item[]
-        
+        ---@type snacks.dashboard.Item[]
+
         -- Used by the `header` section
         header = [[
  ______          __                  _______           __
@@ -76,7 +76,7 @@ return {
             return require("snacks.picker.source.explorer").setup(opts)
           end,
 
-          layout = { preset = "sidebar",preview=false, cycle = false,layout={width=25} },
+          layout = { preset = "sidebar", preview = false, cycle = false, layout = { width = 25 } },
           auto_close = false,
           win = {
             list = {
@@ -122,6 +122,25 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = false },
-    image = { enabled = true }
+    image = { enabled = true },
+    toggle = {
+      map = vim.keymap.set,          -- keymap.set function to use
+      which_key = true,              -- integrate with which-key to show enabled/disabled icons and colors
+      notify = true,                 -- show a notification when toggling
+      -- icons for enabled/disabled states
+      icon = {
+        enabled = " ",
+        disabled = " ",
+      },
+      -- colors for enabled/disabled states
+      color = {
+        enabled = "green",
+        disabled = "yellow",
+      },
+      wk_desc = {
+        enabled = "Disable ",
+        disabled = "Enable ",
+      },
+    }
   },
 }

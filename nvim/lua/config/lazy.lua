@@ -35,13 +35,13 @@ require("lazy").setup({
 
 
 
-vim.keymap.set('n', '<M-S-i>', function() vim.lsp.buf.format { async = true } end, {})
-vim.keymap.set('n', "<leader>ff", function() Snacks.picker.files() end)
-vim.keymap.set('n', '<leader>fs', function() Snacks.picker.grep_word() end, {})
-vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, {})
-vim.keymap.set('n', '<leader>fh', function() Snacks.picker.help() end, {})
+vim.keymap.set('n', '<M-S-i>', function() vim.lsp.buf.format { async = true } end, { desc = "Format Code" })
+vim.keymap.set('n', "<leader>ff", function() Snacks.picker.files() end, { desc = "File Picker" })
+vim.keymap.set('n', '<leader>fs', function() Snacks.picker.grep_word() end, { desc = "Grep word" })
+vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = "Buffers" })
+vim.keymap.set('n', '<leader>fh', function() Snacks.picker.help() end, { desc = "Help" })
 
--- keymaps for buffers
+
 
 vim.keymap.set('n', '<M-Tab>', function() Snacks.picker.buffers() end)
 vim.keymap.set('n', '<M-d>', function() Snacks.bufdelete() end, {})
@@ -57,34 +57,34 @@ vim.keymap.set('n', '//', function()
   end
 end, {})
 -- config for whichkey --
-local wk = require("which-key")
-wk.add({
-  { "<leader>f",  group = "file" }, -- group
-  { "<leader>ff", desc = "Find File",          mode = "n" },
-  { "<leader>fb", desc = "find buffers",       mode = "n" },
-  { "<leader>fs", desc = "search word",        mode = "n" },
-  { "<M-Tab>",    desc = "buffer next" },
-  { "<M-d>",      desc = "buffer delete" },
-  { "<M-S-d>",    desc = "Other buffer delete" },
-  { "<leader>w",  proxy = "<c-w>",             group = "windows" }, -- proxy to window mappings
-  {
-    "<leader>b",
-    group = "buffers",
-    expand = function()
-      return require("which-key.extras").expand.buf()
-    end
-  },
-  {
-    mode = { "n", "v" },                          -- NORMAL and VISUAL mode
-    { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
-    { "<leader>w", "<cmd>w<cr>", desc = "Write" },
-  }
-})
+-- local wk = require("which-key")
+-- wk.add({
+--   { "<leader>f",  group = "file" }, -- group
+--   { "<leader>ff", desc = "Find File",          mode = "n" },
+--   { "<leader>fb", desc = "find buffers",       mode = "n" },
+--   { "<leader>fs", desc = "search word",        mode = "n" },
+--   { "<M-Tab>",    desc = "buffer next" },
+--   { "<M-d>",      desc = "buffer delete" },
+--   { "<M-S-d>",    desc = "Other buffer delete" },
+--   { "<leader>w",  proxy = "<c-w>",             group = "windows" }, -- proxy to window mappings
+--   {
+--     "<leader>b",
+--     group = "buffers",
+--     expand = function()
+--       return require("which-key.extras").expand.buf()
+--     end
+--   },
+--   {
+--     mode = { "n", "v" },                          -- NORMAL and VISUAL mode
+--     { "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
+--     { "<leader>w", "<cmd>w<cr>", desc = "Write" },
+--   }
+-- })
 
 
 -- Undotree keybind
 local undotree = require("undotree")
-vim.keymap.set("n", "<leader>u", undotree.toggle, {})
+vim.keymap.set("n", "<leader>u", undotree.toggle, { desc = "Toggle undo tree" })
 
 -- minimap keybind
 vim.keymap.set('n', "<leader>mm", function() MiniMap.toggle() end, { desc = "Mini mao Toggle" })
@@ -97,6 +97,7 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set ttimeoutlen=100")
 vim.cmd("nnoremap <Down> gj")
 vim.cmd("nnoremap <Up> gk")
 vim.cmd("inoremap <Down> <C-o>gj")

@@ -9,8 +9,8 @@ vim.g.clipboard = {
     ["*"] = "xclip -selection clipboard -in",
   },
   paste = {
-    ["+"] = "greenclip print | head -n 1",
-    ["*"] = "greenclip print | head -n 1",
+    ["+"] = "sh -c 'greenclip print|head -n 1'",
+    ["*"] = "sh -c 'greenclip print|head -n 1'",
   },
   cache_enabled = 1,
 }
@@ -22,7 +22,7 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.updatetime = 300
 vim.opt.scrolloff = 8
-vim.o.wildmode="longest,list,full"
+-- vim.o.wildmode="longest,list,full"
 -- In your init.lua or a dedicated diagnostics config file
 vim.diagnostic.config({
   virtual_text = {
