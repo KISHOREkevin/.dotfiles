@@ -6,6 +6,10 @@ plugins=( colored-man-pages zsh-interactive-cd  zsh-autosuggestions  zsh-syntax-
 source $ZSH/oh-my-zsh.sh
 
 #### my aliases ####
+alias .2="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
 alias ls='eza --icons -lah --group-directories-first'
 alias weather='curl wttr.in/madurai'
 alias open='xdg-open'
@@ -15,10 +19,10 @@ alias v='nvim'
 alias zshrc='nvim $HOME/.zshrc'
 alias tmuxrc='nvim $HOME/.tmux.conf'
 alias vimrc='nvim $HOME/.vimrc'
-alias config='nvim $HOME/config/'
+alias config='nvim $HOME/.config/'
 ## startup script##
 if [ -z "$TMUX" ]; then
-  mystartupscript    
+  mystartupscript
 fi
 #nerdfetch
 ## starship ###
