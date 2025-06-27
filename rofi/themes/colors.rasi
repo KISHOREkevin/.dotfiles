@@ -1,0 +1,23 @@
+configuration {
+    modi: "run,drun,window";
+    terminal: "kitty";
+    disable-history: true; 
+    display-drun: " 󰣇 ";
+    display-run: " 󰣇 ";
+    display-window:  " 󰣇 ";
+
+   
+}
+*{
+   bg-col:  #1e1e2e;
+    bg-col-light: #cdd6f4;
+    bg-col-2: #45475a;
+    border-col: #1e1e2e;
+    selected-col: #89b4fa;
+    blue: #89b4fa;
+    fg-col: #cdd6f4;
+    fg-col2: #1e1e2e;
+     width: 800;
+    font: "JetBrainsMonoNL Nerd Font 12";
+}
+

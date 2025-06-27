@@ -1,12 +1,91 @@
-configuration{
-    modi: "run,drun,window";
-    terminal: "kitty";
-    disable-history: true; 
-    display-drun: " 󰣇 ";
-    display-run: " 󰣇 ";
-    display-window:  " 󰣇 ";
-   
+
+
+@theme "/home/kishore/.config/rofi/themes/colors.rasi"
+
+
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color: inherit;
+    // margin : 3px ;
 }
 
-@theme "~/.config/rofi/themes/catppuccin-mocha.rasi"
+element-icon{
+    size: 20px;
+    margin: 0px 10px; 
+  }
 
+window {
+    
+    border: 3px;
+    border-color: @border-col;
+    background-color: @bg-col;
+    border-radius:5px; 
+}
+
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar {
+    children: [prompt,entry];
+    background-color: @blue;
+    padding: 2px;
+    margin:2px;
+    border-radius:5px;
+
+}
+
+prompt {
+    background-color: @blue;
+    margin:2px;
+    padding: 2px;
+    text-color: @bg-col;
+    border-radius:5px;  
+}
+
+
+entry {
+    padding:5px; 
+    text-color: @fg-col;
+    background-color: @bg-col;
+}
+
+listview {
+  
+    padding: 6px;
+    margin: 10px;
+    lines:6;
+    columns:2;
+    background-color: @bg-col;
+}
+
+element {
+    padding: 10px;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+}
+
+
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @fg-col2  ;
+    border-radius:5px; 
+}
+
+mode-switcher {
+    spacing: 0;
+  }
+
+message {
+    background-color: @bg-col-light;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+textbox {
+     
+    text-color: @blue;
+    background-color: @bg-col-light;
+}
