@@ -1,5 +1,4 @@
-from qtilebar import myBar,othertweaks
-from globalvars import mod,terminal
+from qtilebar import othertweaks
 from qtilekeys import mykeys
 from qtilemouse import mymouse
 from qtilegroups import mygroups
