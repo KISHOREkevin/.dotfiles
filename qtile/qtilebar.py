@@ -14,8 +14,8 @@ myBar=bar.Bar(
                 widget.GroupBox(
                     active=catppuccin[13],
                     highlight_method='block',
-                    block_highlight_text_color=catppuccin[2],
-                    this_current_screen_border=catppuccin[13],
+                    block_highlight_text_color=catppuccin[11],
+                    this_current_screen_border=catppuccin[3],
                     padding=5
                     ),
                 widget.Spacer(),
