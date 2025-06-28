@@ -18,6 +18,8 @@ alias fishrc='nvim $HOME/.config/fish/config.fish'
 alias tmuxrc='nvim $HOME/.tmux.conf'
 alias vimrc='nvim $HOME/.vimrc'
 alias config='nvim $HOME/.config/'
+alias tn='tmux new-session -s main nvim .'
+
 ## startup script##
 if not set -q TMUX
   mystartupscript
@@ -54,44 +56,46 @@ function extract
             return 1
         end
 
-        switch (string match -r '.*\.' -- "$n")
-            case '*.cbt' '*.tar.bz2' '*.tar.gz' '*.tar.xz' '*.tbz2' '*.tgz' '*.txz' '*.tar'
+        set -l ext (string match -r '.*\.(.+)' -- "$n" | tail -n 1)
+        
+        switch "$ext"
+            case 'cbt' 'tar.bz2' 'tar.gz' 'tar.xz' 'tbz2' 'tgz' 'txz' 'tar'
                 tar zxvf "$n"
-            case '*.lzma'
+            case 'lzma'
                 unlzma ./"$n"
-            case '*.bz2'
+            case 'bz2'
                 bunzip2 ./"$n"
-            case '*.cbr' '*.rar'
+            case 'cbr' 'rar'
                 unrar x -ad ./"$n"
-            case '*.gz'
+            case 'gz'
                 gunzip ./"$n"
-            case '*.cbz' '*.epub' '*.zip'
+            case 'cbz' 'epub' 'zip'
                 unzip ./"$n"
-            case '*.z'
+            case 'z'
                 uncompress ./"$n"
-            case '*.7z' '*.apk' '*.arj' '*.cab' '*.cb7' '*.chm' '*.deb' '*.iso' '*.lzh' '*.msi' '*.pkg' '*.rpm' '*.udf' '*.wim' '*.xar' '*.vhd'
+            case '7z' 'apk' 'arj' 'cab' 'cb7' 'chm' 'deb' 'iso' 'lzh' 'msi' 'pkg' 'rpm' 'udf' 'wim' 'xar' 'vhd'
                 7z x ./"$n"
-            case '*.xz'
+            case 'xz'
                 unxz ./"$n"
-            case '*.exe'
+            case 'exe'
                 cabextract ./"$n"
-            case '*.cpio'
+            case 'cpio'
                 cpio -id < ./"$n"
-            case '*.cba' '*.ace'
+            case 'cba' 'ace'
                 unace x ./"$n"
-            case '*.zpaq'
+            case 'zpaq'
                 zpaq x ./"$n"
-            case '*.arc'
+            case 'arc'
                 arc e ./"$n"
-            case '*.cso'
+            case 'cso'
                 ciso 0 ./"$n" ./"$n.iso"; and extract "$n.iso"; and rm -f "$n"
-            case '*.zlib'
+            case 'zlib'
                 zlib-flate -uncompress < ./"$n" > ./"$n.tmp"; and mv ./"$n.tmp" ./(string replace -r '\.zlib$' '' -- "$n"); and rm -f "$n"
-            case '*.dmg'
+            case 'dmg'
                 hdiutil mount ./"$n" -mountpoint "./$n.mounted"
-            case '*.tar.zst'
+            case 'tar.zst'
                 tar -I zstd -xvf ./"$n"
-            case '*.zst'
+            case 'zst'
                 zstd -d ./"$n"
             case '*'
                 echo "extract: '$n' - unknown archive method"
@@ -99,7 +103,6 @@ function extract
         end
     end
 end
-
 fzf --fish | source
 starship init fish | source
 zoxide init fish | source

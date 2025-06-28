@@ -6,12 +6,12 @@ SETUVAR fish_color_cancel:f38ba8
 SETUVAR fish_color_command:89b4fa
 SETUVAR fish_color_comment:7f849c
 SETUVAR fish_color_cwd:f9e2af
-SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_cwd_root:bf616a
 SETUVAR fish_color_end:fab387
 SETUVAR fish_color_error:f38ba8
 SETUVAR fish_color_escape:eba0ac
 SETUVAR fish_color_gray:6c7086
-SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_history_current:e5e9f0\x1e\x2d\x2dbold
 SETUVAR fish_color_host:89b4fa
 SETUVAR fish_color_host_remote:a6e3a1
 SETUVAR fish_color_keyword:f38ba8
