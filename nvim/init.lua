@@ -1,4 +1,6 @@
 require("config.lazy")
+--vim.o.background = "dark" -- or "light" for light mode
+
 vim.o.cursorline=true
 vim.o.number=true
 vim.opt.clipboard="unnamedplus"
@@ -22,6 +24,12 @@ vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.updatetime = 300
 vim.opt.scrolloff = 8
+-- UFO folding
+vim.o.foldcolumn = "1" -- '0' is not bad
+vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.wildmode="longest,list,full"
 -- In your init.lua or a dedicated diagnostics config file
 vim.diagnostic.config({
@@ -45,3 +53,4 @@ vim.diagnostic.config({
   underline = true, -- Underline problematic code
 })
 vim.g.minitrailspace_disable=true
+

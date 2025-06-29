@@ -14,8 +14,7 @@ return {
         ---@type snacks.dashboard.Item[]
 
         -- Used by the `header` section
-        header = [[
- ______          __                  _______           __
+        header = [[______          __                  _______           __
 |      .-----.--|  .-----.--.--.    |   _   .----.----|  |--.
 |   ---|  _  |  _  |  -__|_   _|    |       |   _|  __|     |
 |______|_____|_____|_____|__.__|    |___|___|__| |____|__|__|]],
@@ -52,15 +51,17 @@ return {
         explorer = {
           finder = "explorer",
           hidden = true,
+          ignored=true,
           sort = { fields = { "sort" } },
           supports_live = true,
           tree = true,
           watch = true,
           diagnostics = true,
           diagnostics_open = true,
-          git_status = true,
+          dim_ignored=false,
+          git_status = false,
           git_status_open = false,
-          git_untracked = true,
+          git_untracked = false,
           follow_file = true,
           focus = "list",
           jump = { close = false },
@@ -71,7 +72,7 @@ return {
             file = { filename_only = true },
             severity = { pos = "right" },
           },
-          matcher = { sort_empty = false, fuzzy = true },
+          matcher = { sort_empty = false, fuzzy = false },
           config = function(opts)
             return require("snacks.picker.source.explorer").setup(opts)
           end,

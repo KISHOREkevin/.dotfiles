@@ -60,6 +60,8 @@ return {
         end, opts)
         -- Signature Help (function arguments info)
         vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
+
+        require("ufo").setup()
   end
  -- example calling setup directly for each LSP
   }

@@ -28,7 +28,7 @@ require("lazy").setup({
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "gruvbox" } },
   -- automatically check for plugin updates
   checker = { enabled = false },
 })
@@ -98,6 +98,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set ttimeoutlen=100")
+vim.cmd("set termguicolors")
 vim.cmd("nnoremap <Down> gj")
 vim.cmd("nnoremap <Up> gk")
 vim.cmd("inoremap <Down> <C-o>gj")
