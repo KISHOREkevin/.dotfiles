@@ -1,6 +1,6 @@
 from libqtile import qtile
 from qtile_extras import bar,widget
-from qtile_extras.widget.decorations import BorderDecoration, PowerLineDecoration,RectDecoration
+from qtile_extras.widget.decorations import BorderDecoration, PowerLineDecoration
 from colors import catppuccin
 terminal="kitty"
 
@@ -12,7 +12,6 @@ powerline={
 
 sideBtn={
         "decorations":[
-            #RectDecoration(colour=catppuccin[13], radius=2, filled=True)
             BorderDecoration(border_width=[2,0,0,0],colour=catppuccin[13])
             ]
         }
