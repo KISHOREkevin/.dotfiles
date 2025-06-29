@@ -1,13 +1,31 @@
-from libqtile import bar,widget,qtile
+from libqtile import qtile
+from qtile_extras import bar,widget
+from qtile_extras.widget.decorations import BorderDecoration, PowerLineDecoration,RectDecoration
 from colors import catppuccin
 terminal="kitty"
+
+powerline={
+        "decorations":[
+            PowerLineDecoration(path="back_slash")
+            ]
+        }
+
+sideBtn={
+        "decorations":[
+            #RectDecoration(colour=catppuccin[13], radius=2, filled=True)
+            BorderDecoration(border_width=[2,0,0,0],colour=catppuccin[13])
+            ]
+        }
+
 myBar=bar.Bar(
              
              [
                 widget.TextBox(
+                   **sideBtn,
                     text='  ',
-                    background=catppuccin[13],
-                    foreground=catppuccin[2],
+                   
+                    foreground=catppuccin[13],
+                    
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} sysinfo")}
 
                 ),  
@@ -18,7 +36,7 @@ myBar=bar.Bar(
                     this_current_screen_border=catppuccin[3],
                     padding=5
                     ),
-                widget.Spacer(),
+                widget.Spacer( **powerline ),
                 # widget.Battery(
                 #       background=colors["widgetbg"],
                 #      foreground=colors["widgetfg"],
@@ -31,16 +49,18 @@ myBar=bar.Bar(
                 #      notify_below=40
                 #  ),
                 widget.DF(
+                    
+                    **powerline,
                     background=catppuccin[18],
                     foreground=catppuccin[2],
                     format='  {uf} {m} / {s} {m} ',
                     partition="/home",
-                    visible_on_warn = False
+                    visible_on_warn = False,
+                    
                     ),
-                widget.Sep(
-                    foreground=catppuccin[2]
-                    ),
+                
                 widget.Volume(
+                    **powerline ,
                     background=catppuccin[19],
                     foreground=catppuccin[2], 
                     get_volume_command='volumecontrol get-volume',
@@ -53,30 +73,26 @@ myBar=bar.Bar(
                     mute_format='   {volume}% ',
                     mute_foreground=catppuccin[21]
                                         ),
-                widget.Sep(
-                    foreground=catppuccin[2]
-                    ),
+                
                 widget.Backlight(
-                     backlight_name='amdgpu_bl1',
+                    **powerline , 
+                    backlight_name='amdgpu_bl1',
                      format=" 󰃠 {percent:2.0%} ",
                      background=catppuccin[20],
                      foreground=catppuccin[2]
                      ),
-                widget.Sep(
-                    foreground=catppuccin[2]
-                    ),
+                
                 widget.Clock(
+                     **powerline ,
                      format="  %d-%m-%Y %a | 󰥔 %H:%M ",
                      background=catppuccin[17],
                      foreground=catppuccin[2]
         
                  ),
-                widget.Sep(
-                    foreground=catppuccin[2]
-                    ),
+                
                  widget.TextBox(
-                         text=" 󰎆 ",
-                         mouse_callbacks={
+                        text=" 󰎆 ",
+                        mouse_callbacks={
                              "Button1": lambda: qtile.cmd_spawn("ambients")
                              }
                  ),
@@ -87,14 +103,15 @@ myBar=bar.Bar(
                         "Button3": lambda: qtile.cmd_spawn("wallpaper set")
                     }
                  ), 
-                 widget.Systray( 
+                 widget.Systray(
+                        **powerline,
                          hide_crash=True
                          ),
                  
                  widget.TextBox(
+                        **sideBtn,
                          fmt=" ⏻ ",
-                         background=catppuccin[13],
-                         foreground=catppuccin[2],
+                         foreground=catppuccin[13],
                          mouse_callbacks={
                              "Button1": lambda: qtile.cmd_spawn(f"powerscript")
                              }
