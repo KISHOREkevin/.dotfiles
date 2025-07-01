@@ -19,7 +19,8 @@ myfloatlayout=layout.Floating(
         Match(wm_class="wihotspot"), # hotspot
         Match(wm_class="gufw.py"), # firewall
         Match(wm_class="geany"), # notepad
-        Match(wm_class="nwg-look") # gtk settings
+        Match(wm_class="nwg-look"),# gtk settings
+        Match(wm_class="Sxiv") # image viewer
     ]
 
 )

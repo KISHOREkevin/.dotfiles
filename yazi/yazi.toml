@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 ratio = [1,4,3]
 [preview]
 image_quality = 60
@@ -9,15 +9,19 @@ edit = [
 ]
 
 pdf = [
-{ run = 'zathura "$@"',block = true , for = "unix" }
+{ run = 'zathura "$@"',orphan = true , for = "unix" }
 ]
 
 image = [
-{run = 'sxiv "$@"' , block=true,for="unix"}
+{run = 'sxiv -b "$@"' , orphan=true,for="unix"}
 ]
 
 video = [
-{run = 'mpv "$@"',block=true,for="unix"}
+{run = 'mpv "$@"',orphan=true,for="unix"}
+]
+
+librefiles = [
+{run = 'libreoffice "$@"',orphan=true,for="unix"}
 ]
 
 [open]
@@ -27,6 +31,7 @@ rules = [
 {mime = "image/*",use="image"},
 {mime = "video/*",use = "video"},
 {mime = "audio/*",use = "video"},
+{name = "*.odt",use = "librefiles"},
 { mime = "application/{json,x-ndjson}", use = "edit" },
 {name = "*" , use = "edit"}
 ]
