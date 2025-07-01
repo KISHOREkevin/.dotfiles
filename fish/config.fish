@@ -19,7 +19,7 @@ alias tmuxrc='nvim $HOME/.tmux.conf'
 alias vimrc='nvim $HOME/.vimrc'
 alias config='nvim $HOME/.config/'
 alias tn='tmux new-session -s main nvim .'
-
+alias ipython='ipython --no-banner'
 ## startup script##
 if not set -q TMUX
   mystartupscript
