@@ -12,7 +12,7 @@ powerline={
 
 sideBtn={
         "decorations":[
-            BorderDecoration(border_width=[2,0,0,0],colour=catppuccin[13])
+            BorderDecoration(border_width=[2,0,0,0],colour=catppuccin["blue"])
             ]
         }
 
@@ -23,16 +23,16 @@ myBar=bar.Bar(
                    **sideBtn,
                     text='  ',
                    
-                    foreground=catppuccin[13],
+                    foreground=catppuccin["blue"],
                     
                     mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(f"{terminal} sysinfo")}
 
                 ),  
                 widget.GroupBox(
-                    active=catppuccin[13],
+                    active=catppuccin["blue"],
                     highlight_method='block',
-                    block_highlight_text_color=catppuccin[11],
-                    this_current_screen_border=catppuccin[3],
+                    block_highlight_text_color=catppuccin["text"],
+                    this_current_screen_border=catppuccin["surface-0"],
                     padding=5
                     ),
                 widget.Spacer( **powerline ),
@@ -50,8 +50,8 @@ myBar=bar.Bar(
                 widget.DF(
                     
                     **powerline,
-                    background=catppuccin[18],
-                    foreground=catppuccin[2],
+                    background=catppuccin["yellow"],
+                    foreground=catppuccin["base"],
                     format='  {uf} {m} / {s} {m} ',
                     partition="/home",
                     visible_on_warn = False,
@@ -60,8 +60,8 @@ myBar=bar.Bar(
                 
                 widget.Volume(
                     **powerline ,
-                    background=catppuccin[19],
-                    foreground=catppuccin[2], 
+                    background=catppuccin["blue"],
+                    foreground=catppuccin["base"], 
                     get_volume_command='volumecontrol get-volume',
                     volume_up_command="volumecontrol up",
                     volume_down_command="volumecontrol down",
@@ -70,22 +70,22 @@ myBar=bar.Bar(
                     check_mute_string="on",
                     unmute_format='   {volume}% ',
                     mute_format='   {volume}% ',
-                    mute_foreground=catppuccin[21]
+                    mute_foreground=catppuccin["red"]
                                         ),
                 
                 widget.Backlight(
                     **powerline , 
                     backlight_name='amdgpu_bl1',
                      format=" 󰃠 {percent:2.0%} ",
-                     background=catppuccin[20],
-                     foreground=catppuccin[2]
+                     background=catppuccin["peach"],
+                     foreground=catppuccin["base"]
                      ),
                 
                 widget.Clock(
                      **powerline ,
                      format="  %d-%m-%Y %a | 󰥔 %H:%M ",
-                     background=catppuccin[17],
-                     foreground=catppuccin[2]
+                     background=catppuccin["green"],
+                     foreground=catppuccin["base"]
         
                  ),
                 
@@ -110,14 +110,14 @@ myBar=bar.Bar(
                  widget.TextBox(
                         **sideBtn,
                          fmt=" ⏻ ",
-                         foreground=catppuccin[13],
+                         foreground=catppuccin["blue"],
                          mouse_callbacks={
                              "Button1": lambda: qtile.cmd_spawn(f"powerscript")
                              }
                          ) 
              ],
              24,
-             background=catppuccin[2],
+             background=catppuccin["base"],
          )
 
 othertweaks=dict(

@@ -2,8 +2,8 @@ from libqtile.config import Match
 from colors import catppuccin
 from libqtile import layout
 myfloatlayout=layout.Floating(
-       border_focus=catppuccin[13], 
-       border_normal=catppuccin[13] ,
+       border_focus=catppuccin["blue"], 
+       border_normal=catppuccin["blue"] ,
        border_width=2,
 
         float_rules=[
