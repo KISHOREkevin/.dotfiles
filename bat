@@ -1,0 +1,1 @@
+/home/kishore/.config/bat/
