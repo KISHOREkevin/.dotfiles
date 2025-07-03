@@ -17,7 +17,7 @@ alias bashrc='nvim $HOME/.bashrc'
 alias fishrc='nvim $HOME/.config/fish/config.fish'
 alias tmuxrc='nvim $HOME/.tmux.conf'
 alias vimrc='nvim $HOME/.vimrc'
-alias config='cd $HOME/.config && nvim && cd -'
+alias config='cd $HOME/config && nvim && cd -'
 alias tn='tmux new-session -s main nvim'
 alias ipython='ipython --no-banner'
 ## startup script##
