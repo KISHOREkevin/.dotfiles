@@ -7,6 +7,7 @@ return {
 
     bigfile = { enabled = true },
     dashboard = {
+      enabled = true,
       preset = {
         -- Defaults to a picker that supports `fzf-lua`, `telescope.nvim` and `mini.pick`
         ---@type fun(cmd:string, opts:table)|nil
@@ -33,7 +34,7 @@ return {
         { section = "startup" },
       },
     },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
     picker = {
@@ -45,75 +46,15 @@ return {
           format = "file",
           hidden = true,
           follow = true,
-          layout = { preset = "bottom" },
+          layout = { preset = "default" },
           exclude = { "Games" }
         },
-        explorer = {
-          finder = "explorer",
-          hidden = true,
-          ignored=true,
-          sort = { fields = { "sort" } },
-          supports_live = true,
-          tree = true,
-          watch = true,
-          diagnostics = true,
-          diagnostics_open = true,
-          dim_ignored=false,
-          git_status = false,
-          git_status_open = false,
-          git_untracked = false,
-          follow_file = true,
-          focus = "list",
-          jump = { close = false },
-          -- to show the explorer to the right, add the below to
-          -- your config under `opts.picker.sources.explorer`
-          -- layout = { layout = { position = "right" } },
-          formatters = {
-            file = { filename_only = true },
-            severity = { pos = "right" },
-          },
-          matcher = { sort_empty = false, fuzzy = false },
-          config = function(opts)
-            return require("snacks.picker.source.explorer").setup(opts)
-          end,
-
-          layout = { preset = "sidebar", preview = false, cycle = false, layout = { width = 25 } },
-          auto_close = false,
-          win = {
-            list = {
-              keys = {
-                ["<BS>"] = "explorer_up",
-                ["l"] = "confirm",
-                ["h"] = "explorer_close", -- close directory
-                ["a"] = "explorer_add",
-                ["d"] = "explorer_del",
-                ["r"] = "explorer_rename",
-                ["c"] = "explorer_copy",
-                ["m"] = "explorer_move",
-                ["o"] = "explorer_open", -- open with system application
-                ["P"] = "toggle_preview",
-                ["y"] = { "explorer_yank", mode = { "n", "x" } },
-                ["p"] = "explorer_paste",
-                ["u"] = "explorer_update",
-                ["<c-c>"] = "tcd",
-                ["<leader>/"] = "picker_grep",
-                ["<c-t>"] = "terminal",
-                ["."] = "explorer_focus",
-                ["I"] = "toggle_ignored",
-                ["H"] = "toggle_hidden",
-                ["Z"] = "explorer_close_all",
-                ["]g"] = "explorer_git_next",
-                ["[g"] = "explorer_git_prev",
-                ["]d"] = "explorer_diagnostic_next",
-                ["[d"] = "explorer_diagnostic_prev",
-                ["]w"] = "explorer_warn_next",
-                ["[w"] = "explorer_warn_prev",
-                ["]e"] = "explorer_error_next",
-                ["[e"] = "explorer_error_prev",
-              },
-            },
-          },
-
+        lines = {
+          finder = "lines",
+          format = "lines",
+          layout = {
+            preset = "default",
+          }
         }
       }
     },
@@ -125,9 +66,9 @@ return {
     words = { enabled = false },
     image = { enabled = true },
     toggle = {
-      map = vim.keymap.set,          -- keymap.set function to use
-      which_key = true,              -- integrate with which-key to show enabled/disabled icons and colors
-      notify = true,                 -- show a notification when toggling
+      map = vim.keymap.set, -- keymap.set function to use
+      which_key = true,     -- integrate with which-key to show enabled/disabled icons and colors
+      notify = true,        -- show a notification when toggling
       -- icons for enabled/disabled states
       icon = {
         enabled = " ",

@@ -53,4 +53,3 @@ vim.diagnostic.config({
   underline = true, -- Underline problematic code
 })
 vim.g.minitrailspace_disable=true
-
