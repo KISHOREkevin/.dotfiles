@@ -5,12 +5,12 @@ brightnessnotify(){
 }
 
 brightnessup(){
-  brightnessctl -c backlight set +5%
+  brightnessctl -c backlight set +5% > /dev/null
   brightnessnotify
 }
 
 brightnessdown(){
-  brightnessctl -c backlight set 5%-
+  brightnessctl -c backlight set 5%- > /dev/null
   brightnessnotify
 }
 

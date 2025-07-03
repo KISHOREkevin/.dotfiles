@@ -3,7 +3,7 @@
 poweroffopt='󰤆'
 rebootopt=''
 logoutopt='󰗽'
-sleepopt='󰒲  '
+sleepopt='󰒲'
 
 declare -a options=($poweroffopt $rebootopt $logoutopt $sleepopt)
 

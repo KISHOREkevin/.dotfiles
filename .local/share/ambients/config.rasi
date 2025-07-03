@@ -1,9 +1,51 @@
-configuration{
-    modi: "run,drun,window";
-    terminal: "kitty";
-    disable-history: true; 
-    location:0; 
+@theme "/home/kishore/.config/rofi/themes/colors.rasi"
+*{
+  width: 600;
+}
+element-text, element-icon , mode-switcher {
+    background-color: inherit;
+    text-color: inherit;
 }
 
-@theme "ambientmenu.rasi"
+window {
+    
+    background-color: @bg-col;
+    border-radius:10px;
+  
+}
 
+mainbox {
+    background-color: @bg-col;
+}
+
+inputbar{
+    enabled:false;
+}
+listview { 
+    padding: 10px;
+    margin: 10px;
+    lines:1;
+    columns:7;
+    orientation:horizontal;
+    background-color: @bg-col;
+}
+
+element {
+    margin: 5px;
+    padding: 20px ;
+    background-color: @bg-col;
+    text-color: @fg-col  ;
+    background-color : @bg-col-2;
+    border-radius : 50px;
+}
+
+element-text{
+    horizontal-align: 0.45;
+}
+
+
+
+element selected {
+    background-color:  @selected-col ;
+    text-color: @bg-col  ;
+}
