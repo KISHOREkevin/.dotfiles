@@ -36,7 +36,7 @@ super + e
       $TERMINAL nvim
 
 super + shift + f
-     nemo 
+     pcmanfm 
 
 super + shift + i
       $TERMINAL sysinfo
