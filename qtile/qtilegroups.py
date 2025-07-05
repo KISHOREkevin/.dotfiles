@@ -28,7 +28,7 @@ for i in mygroups:
         ]
     )
 
-mygroups.append(ScratchPad(' ',[DropDown("terminal","kitty",width=0.9, height=0.9, x=0.05, y=0.05,opacity=1)]))
+mygroups.append(ScratchPad(' ',[DropDown("terminal","kitty",width=0.9, height=0.9, x=0.05, y=0.05)]))
 
 mykeys.extend(
         [
