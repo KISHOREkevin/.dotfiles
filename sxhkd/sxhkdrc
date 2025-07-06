@@ -21,7 +21,7 @@ XF86MonBrightnessDown
 super + l
      slock 
 
-super + m
+super + shift + m
       ambients
 super + p
       powerscript
@@ -36,7 +36,7 @@ super + e
       $TERMINAL nvim
 
 super + shift + f
-     pcmanfm 
+     $TERMINAL yazi 
 
 super + shift + i
       $TERMINAL sysinfo

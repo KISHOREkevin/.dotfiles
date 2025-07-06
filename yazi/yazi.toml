@@ -1,6 +1,6 @@
 [mgr]
 ratio = [1,4,3]
-show_hidden=true
+#show_hidden=true
 [preview]
 image_quality = 60
 
@@ -10,7 +10,7 @@ edit = [
 ]
 
 pdf = [
-{ run = 'zathura "$@"',orphan = true , for = "unix" }
+{ run = 'zen-browser "$@"',orphan = true , for = "unix" }
 ]
 
 image = [
