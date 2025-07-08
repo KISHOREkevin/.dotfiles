@@ -21,6 +21,10 @@ video = [
 {run = 'mpv "$@"',orphan=true,for="unix"}
 ]
 
+audio = [
+  { run = 'music-player "$@"',orphan=true,for="unix"}
+]
+
 librefiles = [
 {run = 'libreoffice "$@"',orphan=true,for="unix"}
 ]
@@ -31,7 +35,7 @@ rules = [
 {mime = "text/*", use="edit"},
 {mime = "image/*",use="image"},
 {mime = "video/*",use = "video"},
-{mime = "audio/*",use = "video"},
+{mime = "audio/*",use = "audio"},
 {name = "*.odt",use = "librefiles"},
 { mime = "application/{json,x-ndjson}", use = "edit" },
 {name = "*" , use = "edit"}
