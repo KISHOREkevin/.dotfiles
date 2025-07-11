@@ -2,7 +2,7 @@
 frame_color = "#cdd6f4"
 progress_bar_corner_radius = 5
 separator_color= frame
-font = JetBrainsMonoNL Nerd Font 10
+font = JetBrainsMonoNL Nerd Font Propo 10
 alignment = center
 browser = /usr/bin/xdg-open
 corner_radius = 5

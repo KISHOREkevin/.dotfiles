@@ -68,8 +68,8 @@ myBar=bar.Bar(
                     mute_command='volumecontrol mute',
                     check_mute_command='volumecontrol get-mute',
                     check_mute_string="on",
-                    unmute_format='   {volume}% ',
-                    mute_format='   {volume}% ',
+                    unmute_format='  {volume}% ',
+                    mute_format='  {volume}% ',
                     mute_foreground=catppuccin["red"]
                                         ),
                 
@@ -83,7 +83,7 @@ myBar=bar.Bar(
                 
                 widget.Clock(
                      **powerline ,
-                     format="  %d-%m-%Y %a | 󰥔 %H:%M ",
+                     format="  %d-%m-%Y %a | 󰥔 %H:%M ",
                      background=catppuccin["green"],
                      foreground=catppuccin["base"]
         
@@ -121,7 +121,7 @@ myBar=bar.Bar(
          )
 
 othertweaks=dict(
-    font="JetBrainsMonoNL Nerd Font",
+    font="JetBrainsMono Nerd Font Propo",
     fontsize=14,
     padding=3,
 )

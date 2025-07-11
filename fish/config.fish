@@ -106,12 +106,9 @@ end
 
 function tmux
   if test (count $argv) -eq 0
-    # If no arguments are provided, try to create a new session named 'main'.
-    # If that fails (e.g., 'main' already exists), attach to the 'main' session.
-    command tmux new-session -s main; or command tmux attach-session -t main
+      command tmux new-session -s main; or command tmux attach-session -t main
   else
-    # If arguments are provided, pass them directly to the tmux command.
-    command tmux $argv
+      command tmux $argv
   end
 end
 
