@@ -17,7 +17,12 @@ volumemutenotify(){
 }
 
 volumeup(){
-  pactl set-sink-volume @DEFAULT_SINK@ +10%;
+  local currentVolume=$(pactl get-sink-volume @DEFAULT_SINK@| awk -F '%' '{print $1}' | awk '{print $5}')
+  echo $currentVolume
+  if [[ "$currentVolume" -lt 100 ]] ; then
+    pactl set-sink-volume @DEFAULT_SINK@ +10%;
+  fi
+  
   volumenotify
   }
 
