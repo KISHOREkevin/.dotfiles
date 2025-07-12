@@ -38,16 +38,16 @@ return {
     }) 
     
     -- Setup emmet-ls in your LSP config
-lspconfig.emmet_ls.setup({
-  filetypes = { 'html', 'javascriptreact', 'typescriptreact' },
-  init_options = {
-    html = {
-      options = {
-        ["bem.enabled"] = true,
-      },
-    },
-  }
-})
+-- lspconfig.emmet_ls.setup({
+--   filetypes = { 'html', 'javascriptreact', 'typescriptreact' },
+--   init_options = {
+--     html = {
+--       options = {
+--         ["bem.enabled"] = true,
+--       },
+--     },
+--   }
+-- })
 
 
     local opts = { noremap = true, silent = true, buffer = bufnr }
