@@ -38,7 +38,6 @@ vim.keymap.set('n', "<M-S-d>", function() Snacks.bufdelete.other() end, {desc="d
 vim.keymap.set('n', '<leader>k', function() Snacks.picker.keymaps() end,{desc="List buffers"})
 
 
-
 -- Undotree keybind
 local undotree = require("undotree")
 vim.keymap.set("n", "<leader>u", undotree.toggle, { desc = "Toggle undo tree" })
