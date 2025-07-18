@@ -18,6 +18,6 @@ configuration {
     fg-col: #cdd6f4;
     fg-col2: #1e1e2e;
      width: 800;
-    font: "JetBrainsMonoNL Nerd Font 12";
+    font: "JetBrainsMonoNL Nerd Font Propo 12";
 }
 

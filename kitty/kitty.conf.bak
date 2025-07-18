@@ -24,6 +24,6 @@ cursor_trail_decay 0.01 0.15
 
 
 # BEGIN_KITTY_THEME
-# Monokai Pro
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
